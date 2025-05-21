@@ -99,6 +99,40 @@ body {
   }
 }
 /* Footer */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 201, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(0, 201, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 201, 255, 0);
+  }
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-icons .social-link {
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  transition: color 0.3s ease;
+  animation: pulse 2.5s infinite;
+}
+
+.footer-icons .social-link:hover {
+  color: #00c9ff;
+  transform: scale(1.2);
+}
 
 /* Leadership Section Styles */
 #leadership {
