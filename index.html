@@ -1122,191 +1122,196 @@ footer {
       flex: 1 1 100% !important;
     }
   }
+    .progress-bar {
+    background: #e0e0e0;
+    border-radius: 12px;
+    height: 14px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: linear-gradient(90deg, #4e73df, #1a237e);
+    height: 100%;
+    width: 0;
+    border-radius: 12px;
+    transition: width 1.8s ease-in-out;
+  }
+
+  .skill-item strong {
+    display: block;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .skill-item {
+    font-size: 1rem;
+    color: #555;
+  }
+
+    /* Hover glow on timeline icons and content */
+  .timeline-item:hover .timeline-icon {
+    box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+  }
+
+  .timeline-item:hover .content {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    transform: translateY(-8px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .timeline {
+      padding-left: 20px;
+      border-left-width: 3px;
+    }
+    .timeline-icon {
+      left: -24px !important;
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 1.5rem !important;
+    }
+  }
+
+    .timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 30px;
+    border-left: 4px solid #1a237e;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3.5rem;
+    display: flex;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  /* Animation when active */
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-icon {
+    position: absolute;
+    left: -45px;
+    top: 0;
+    background: #1a237e;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgb(26 35 126 / 0.3);
+    transition: background-color 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-icon {
+    background-color: #3949ab;
+    box-shadow: 0 0 15px rgb(57 73 171 / 0.6);
+  }
+
+  .timeline-content {
+    max-width: 700px;
+    padding-left: 15px;
+  }
+
+  .timeline-content h3 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.5rem;
+  }
+
+  .timeline-content h4 {
+    margin: 0 0 0.2rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .timeline-content time {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .timeline-content p {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  @media (max-width: 600px) {
+    .timeline {
+      margin-left: 10px;
+      padding-left: 20px;
+      border-left: 3px solid #1a237e;
+    }
+    .timeline-icon {
+      left: -38px;
+      width: 32px;
+      height: 32px;
+      font-size: 1.3rem;
+    }
+    .timeline-content {
+      max-width: 100%;
+      padding-left: 12px;
+    }
+  }
+      /* Logo hover scale */
+    nav .logo:hover {
+      transform: scale(1.1);
+      color: #ffdd57;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* Nav link hover color and underline */
+    nav ul li a {
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #ffdd57;
+    }
+    nav ul li a .underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: #ffdd57;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    nav ul li a:hover .underline {
+      width: 100%;
+    }
+
+    /* Nav icons floating bounce animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+    nav ul li a:hover .nav-icon {
+      animation: float 1s ease-in-out infinite;
+      display: inline-block;
+    }
   
 </style>
   <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo"></a> <div class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </div>
-      <ul class="nav-links" id="nav-menu">
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
+    
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>Hi, I'm Harshitha</h1>
-      <h2>Business Analyst | Financial Analyst </h2>
-      <div class="cta-container">
-        <a href="#projects" class="cta-btn primary-btn">View My Work</a>
-        <a href="#contact" class="cta-btn secondary-btn">Get In Touch</a>
-      </div>
+      <h2>Business Analyst Graduate | Financial Analyst </h2>
     </div>
   </section>
-
-  <section id="about" class="about-section">
-    <div class="section-container">
-      <div class="section-title">
-        <h2>Career Summary</h2>
-      </div>
-      <div class="about-content">
-        <div class="about-text fade-up">
-          <p>I am a detail-oriented and driven master’s student in Business Analytics at the University of North Texas, with a strong foundation in data analysis, problem-solving, and business intelligence. With experience in AI-driven solutions, data visualization, and statistical modeling, I am skilled at turning complex data into actionable insights that support strategic decision-making. My hands-on work includes projects in malnutrition analytics, AI-powered hiring systems, and fraud detection, showcasing my ability to blend technical expertise with real-world impact. I am proficient in Python, Tableau, SQL, and cloud technologies, and passionate about leveraging data to drive business growth and innovation.</p>
-        </div>
-    </div>
-  </section>
-
-  <section id="skills" class="skills-section">
-  <div class="section-container">
-    <div class="section-title">
-      <h2>Technical & Analytical Skills</h2>
-    </div>
-    <div class="skills-container">
-      <ul>
-        <li class="skill-item" data-skill="Python, R, SQL">
-          <strong>Languages & Programming:</strong> Python, R, SQL
-        </li>
-        <li class="skill-item" data-skill="Tableau, Power BI, Excel">
-          <strong>Visualization & BI Tools:</strong> Tableau, Power BI, Excel
-        </li>
-        <li class="skill-item" data-skill="TensorFlow, PyTorch, Predictive Analytics, Data Mining">
-          <strong>Machine Learning & Analysis:</strong> TensorFlow, PyTorch, Predictive Analytics, Data Mining
-        </li>
-        <li class="skill-item" data-skill="Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc">
-          <strong>Accounting & Finance Tools:</strong> Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc
-        </li>
-        <li class="skill-item" data-skill="SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance">
-          <strong>ERP & Financial Systems:</strong> SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance
-        </li>
-        <li class="skill-item" data-skill="Google Sheets, OneDrive, Adaptive Insights">
-          <strong>Cloud-Based Platforms & Tools:</strong> Google Sheets, OneDrive, Adaptive Insights
-        </li>
-        <li class="skill-item" data-skill="Agile Project Management, Microsoft Office Suite">
-          <strong>Other:</strong> Agile Project Management, Microsoft Office Suite
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-  <section id="experience" class="experience-section">
-    <div class="section-container">
-      <div class="section-title">
-        <h2>Experience</h2>
-      </div>
-      <div class="timeline">
-        <p style="text-align:center;"><i>Experience timeline goes here...</i></p>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="education-section">
-  <div class="section-container">
-    <div class="section-title">
-      <h2>Education</h2>
-    </div>
-    <div class="education-cards">
-      <div class="edu-card animate">
-        <h3>University of North Texas, Denton, TX</h3>
-        <p><strong>Master of Science in Business Analytics</strong></p>
-        <p><em>GPA: 3.5 | Expected: Dec 2025</em></p>
-        <p><strong>Key Courses:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
-      </div>
-
-      <div class="edu-card animate">
-        <h3>St. Pious X Degree College, Hyderabad, India</h3>
-        <p><strong>Bachelor of Commerce in Computer Applications</strong></p>
-        <p><em>GPA: 4.0 | Graduated: May 2023</em></p>
-        <p><strong>Relevant Courses:</strong> Financial Planning, E-Commerce, IFRS, Business Stats, Cost Accounting, Business Economics</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <section id="projects" class="projects-section">
-    <div class="section-title">
-      <h2>Projects</h2>
-    </div>
-
-    <!-- Project 01 -->
-    <div class="project">
-      <button class="project-toggle-btn" onclick="toggleProject('project1')">
-        Project 01: Visualizing Global Trends in Child Malnutrition
-      </button>
-      <div id="project1" class="project-details">
-        <p><strong>Overview:</strong> Conducted a comprehensive analysis using datasets from WHO, UNICEF, and the World Bank to explore global child malnutrition trends.</p>
-        <p><strong>Key Metrics:</strong> Stunting, wasting, underweight, and overweight across regions.</p>
-        <a href="https://data.unicef.org/resources/dataset/malnutrition-data/" target="_blank" class="cta-btn">🌐 View Dataset</a>
-        <p><strong>Highlight:</strong> Identified Yemen and Papua New Guinea as critical hotspots, influencing NGO outreach planning.</p>
-      </div>
-    </div>
-
-    <!-- Project 02 -->
-    <div class="project">
-      <button class="project-toggle-btn" onclick="toggleProject('project2')">
-        Project 02: Hiring Assistant AI – Agentic Resume Screening System
-      </button>
-      <div id="project2" class="project-details">
-        <p><strong>Overview:</strong> Built a privacy-focused, local AI assistant using Retrieval-Augmented Generation (RAG) for automating resume screening.</p>
-        <p><strong>Impact:</strong> Reduced hiring cycle time by 40% and improved transparency with bias-aware scoring.</p>
-        <a href="https://github.com/AmruthaRajsheker/AI-Driven-Banking-Fraud-Detection-and-Prevention-System" target="_blank" class="cta-btn">💻 View Repository</a>
-      </div>
-    </div>
-
-    <!-- Project 03 -->
-    <div class="project">
-      <button class="project-toggle-btn" onclick="toggleProject('project3')">
-        Project 03: AI-Based Fraud Detection System in Banking
-      </button>
-      <div id="project3" class="project-details">
-        <p><strong>Overview:</strong> Created an AI-powered fraud detection platform for banking, identifying threats like identity theft and cyber-fraud.</p>
-        <p><strong>Performance:</strong> Achieved sub-300ms fraud detection and 25% precision improvement, fully GDPR/CCPA compliant.</p>
-        <a href="https://github.com/AmruthaRajsheker/AI-Driven-Banking-Fraud-Detection-and-Prevention-System" target="_blank" class="cta-btn">🔗 View Repository</a>
-      </div>
-    </div>
-
-  </section>
-  <section id="leadership" class="leadership-section">
-    <div class="section-container">
-      <div class="section-title">
-        <h2>Leadership & Community Involvement</h2>
-      </div>
-      <div class="leadership-container">
-        <p style="text-align:center; grid-column: 1 / -1;"><i>Student Assistant Einstein Bros. Bagels, UNT, Denton, TX November 2024 – Present, Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.</i></p>
-         <p style="text-align:center; grid-column: 1 / -1;"><i>Entrepreneurship Intern NSIC, Hyderabad, India November 2022 – March 2023, Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.</i></p>
-         <p style="text-align:center; grid-column: 1 / -1;"><i>Counselor Voice for Girls, Hyderabad, India August 2021 - November 2022, Provided mentorship and guidance to young students, fostering confidence and communication skills.</i></p>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h3>Connect</h3>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="current-year"></span> Harshitha. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <div class="scroll-top" id="scroll-top">
-    <i class="fas fa-arrow-up"></i>
-  </div>
 
   <header>
     <nav>
@@ -1323,83 +1328,333 @@ footer {
     </nav>
   </header>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>As a Business Analytics graduate student and University of North Texas graduate, I hold Bachelor's degrees in Commerce and Computer Applications. Maintaining a 4.0 GPA during undergraduate studies and 3.5 GPA in graduate studies, I combine practical knowledge in data analytics and enterprise technology systems. Skilled in Python, R, SQL, Tableau, Power BI, SAP, Oracle NetSuite, and Microsoft Dynamics 365. I balance strategic thinking and creativity through leadership, social outreach, and my national-level swimming experience, showcasing a blend of business intelligence, technical expertise, and value-driven approaches.</p>
-  </section>
 
-  <section id="career" data-aos="fade-up">
-    <h2>Career Summary</h2>
-    <p>As a Master’s in Business Analytics student at the University of North Texas, I bring detailed-driven analysis and data interpretation skills. I use predictive analytics and business strategy development to extract precise insights, empowering organizational growth and strategic decision-making.</p>
-  </section>
 
-  <section id="education" data-aos="fade-up">
-    <h2>Education & Certifications</h2>
-    <h3>University of North Texas, Denton, TX</h3>
-    <p><em>Master of Science in Business Analytics</em> | GPA: 3.5 | Expected: Dec 2025</p>
-    <p><strong>Key Courses:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
-    <img src="./_blb.jpg" alt="G. Brint Ryan College of Business">
+    <header>
+  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: linear-gradient(90deg, #2980b9, #6dd5fa); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div class="logo" style="font-weight: 700; font-size: 1.5rem; color: white; letter-spacing: 1.2px; cursor: pointer; transition: transform 0.3s ease;">
+      📊 Harshitha's Portfolio
+    </div>
+    <ul class="nav-links" style="list-style: none; display: flex; gap: 1.8rem; margin: 0; padding: 0;">
+      <li>
+        <a href="#about" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> About
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#career" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Career
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#education" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Education
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#skills" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Skills
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#experience" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Experience
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#projects" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Projects
+          <span class="underline"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#leadership" style="color: white; text-decoration: none; position: relative; font-weight: 600; padding-bottom: 4px; display: flex; align-items: center; gap: 6px; font-size: 1rem;">
+          <span class="nav-icon"></span> Leadership
+          <span class="underline"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  </header>
 
-    <h3>St. Pious X Degree College, Hyderabad, India</h3>
-    <p><em>Bachelor of Commerce in Computer Applications</em> | GPA: 4.0 | Graduated: May 2023</p>
-    <p><strong>Relevant Courses:</strong> Financial Planning and Performance, E-Commerce, IFRS, Business Statistics, Cost Accounting, Business Economics</p>
-    <img src="./st.piousx.jpg" alt="St. Pious College">
+<section id="about" data-aos="fade-up" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; max-width: 700px;">
+  <h2 style="border-bottom: 3px solid #2980b9; padding-bottom: 8px; margin-bottom: 20px;">About Me</h2>
+  <p style="font-size: 1.15em; line-height: 1.7; font-weight: 500; margin-bottom: 16px;">
+    As a passionate Business Analytics graduate student at the University of North Texas, I thrive at the intersection of numbers and narratives. With dual Bachelor’s degrees in Commerce and Computer Applications — and a perfect 4.0 GPA during undergrad — I bring a powerhouse combo of sharp analytical skills and business savvy.
+  </p>
+  <p style="font-size: 1.15em; line-height: 1.7; font-weight: 500; margin-bottom: 16px;">
+    Whether it’s Python, R, or SQL scripting; crafting dynamic dashboards with Tableau and Power BI; or navigating complex enterprise systems like SAP and Oracle NetSuite — I turn data into stories that spark strategic action.
+  </p>
+  <p style="font-size: 1.15em; line-height: 1.7; font-weight: 500;">
+    Off the screen, I’m a national-level swimmer and a community leader, balancing rigorous discipline with creative problem-solving. This blend of technical mastery, leadership, and athletic grit fuels my drive to deliver impactful, innovative solutions that resonate beyond the numbers.
+  </p>
+</section>
 
-    <h4>Certifications:</h4>
-    <ul>
-      <li>Entrepreneurship Orientation Program (NSIC)</li>
-      <li>Ad Mad Competition – Creative Strategy & Advertising</li>
+
+
+  <section id="career" data-aos="fade-up" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; max-width: 700px;">
+  <h2 style="border-bottom: 3px solid #2980b9; padding-bottom: 8px; margin-bottom: 20px;">🚀 Career Summary</h2>
+  <p style="font-size: 1.1em; line-height: 1.6; font-weight: 500;">
+    I’m a data-driven storyteller and strategic thinker currently pursuing my Master’s in Business Analytics at the University of North Texas.  
+    Passionate about transforming complex datasets into crystal-clear insights, I leverage predictive analytics and advanced modeling to unlock hidden opportunities and fuel smart business decisions.  
+    My goal? To bridge the gap between data and strategy, empowering organizations to innovate, grow, and outpace the competition in today’s fast-evolving markets.
+  </p>
+</section>
+
+
+ 
+
+
+<section id="education" data-aos="fade-up" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50;">
+  <h2 style="border-bottom: 3px solid #2980b9; padding-bottom: 8px; margin-bottom: 20px;">🎓 Education & Certifications</h2>
+
+  <article style="margin-bottom: 30px;">
+    <h3 style="color: #2980b9; margin-bottom: 6px;">University of North Texas, Denton, TX</h3>
+    <p style="font-style: italic; font-weight: 600; font-size: 1.1em; margin: 4px 0;">
+      Master of Science in Business Analytics <span style="color: #27ae60;">| GPA: 3.5 | Expected Dec 2025</span>
+    </p>
+    <p style="margin: 6px 0 12px 0;">
+      Immersed in transforming raw data into actionable insights through courses like <strong>Data Visualization</strong>, <strong>Data Mining</strong>, and <strong>Predictive Analytics</strong>.  
+      Currently spearheading a capstone project leveraging machine learning to enhance sales forecasting by 15%.
+    </p>
+  </article>
+
+  <article style="margin-bottom: 30px;">
+    <h3 style="color: #2980b9; margin-bottom: 6px;">St. Pious X Degree College, Hyderabad, India</h3>
+    <p style="font-style: italic; font-weight: 600; font-size: 1.1em; margin: 4px 0;">
+      Bachelor of Commerce in Computer Applications <span style="color: #27ae60;">| GPA: 4.0 | Graduated May 2023</span>
+    </p>
+    <p style="margin: 6px 0 12px 0;">
+      Graduated with distinction, mastering the intersection of commerce and technology through courses such as <strong>Financial Planning</strong>, <strong>IFRS</strong>, and <strong>Business Economics</strong>.  
+      Led a pioneering student initiative to integrate cost accounting software, bridging academic theory with real-world application.
+    </p>
+  </article>
+
+  <section style="background-color: #ecf0f1; padding: 15px 20px; border-radius: 8px; max-width: 420px;">
+    <h4 style="color: #34495e; margin-bottom: 12px; font-weight: 700;">🔖 Certifications & Workshops</h4>
+    <ul style="list-style-type: none; padding-left: 0; color: #2c3e50;">
+      <li style="margin-bottom: 8px;">🚀 <strong>Entrepreneurship Orientation Program (NSIC)</strong> — Gained practical skills to launch and sustain startups.</li>
+      <li>🎨 <strong>Ad Mad Competition</strong> — Developed creative strategies & advertising expertise in a competitive environment.</li>
     </ul>
   </section>
+</section>
 
-  <section id="skills" data-aos="fade-up">
-    <h2>Technical & Analytical Skills</h2>
-    <h4>Languages & Programming:</h4>
-    <p>Python, R, SQL</p>
-    <h4>Visualization & BI Tools:</h4>
-    <p>Tableau, Power BI, Excel</p>
-    <h4>Machine Learning & Analysis:</h4>
-    <p>TensorFlow, PyTorch, Predictive Analytics, Data Mining</p>
-    <h4>Accounting & Finance Tools:</h4>
-    <p>Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc</p>
-    <h4>ERP & Financial Systems:</h4>
-    <p>SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance</p>
-    <h4>Cloud-Based Platforms & Tools:</h4>
-    <p>Google Sheets, OneDrive, Adaptive Insights</p>
-    <h4>Other:</h4>
-    <p>Agile Project Management, Microsoft Office Suite</p>
-    <img src="./_skills.png" alt="Skills">
-  </section>
 
-  <section id="experience" data-aos="fade-up">
-    <h2>Internship & Employment Experience</h2>
-    <h4>Student Assistant | Einstein Bros. Bagels, UNT, Denton, TX (Nov 2024 – Present)</h4>
-    <p>Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.</p>
+<section id="skills" class="skills-section" style="padding: 2rem; background: #fff;">
+  <div class="section-container" style="max-width: 800px; margin: auto;">
+    <div class="section-title" style="text-align: center; margin-bottom: 2rem;">
+      <h2 style="font-weight: 700; color: #2a2a72; letter-spacing: 1px;">Technical & Analytical Skills</h2>
+    </div>
+    <div class="skills-container">
+      <ul style="list-style: none; padding: 0;">
+        <li class="skill-item" data-percent="90" style="margin-bottom: 1.5rem;">
+          <strong>Languages & Programming:</strong> Python, R, SQL
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="85" style="margin-bottom: 1.5rem;">
+          <strong>Visualization & BI Tools:</strong> Tableau, Power BI, Excel
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="80" style="margin-bottom: 1.5rem;">
+          <strong>Machine Learning & Analysis:</strong> TensorFlow, PyTorch, Predictive Analytics, Data Mining
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="70" style="margin-bottom: 1.5rem;">
+          <strong>Accounting & Finance Tools:</strong> Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="75" style="margin-bottom: 1.5rem;">
+          <strong>ERP & Financial Systems:</strong> SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="60" style="margin-bottom: 1.5rem;">
+          <strong>Cloud-Based Platforms & Tools:</strong> Google Sheets, OneDrive, Adaptive Insights
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+        <li class="skill-item" data-percent="65" style="margin-bottom: 1.5rem;">
+          <strong>Other:</strong> Agile Project Management, Microsoft Office Suite
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <h4>Entrepreneurship Intern | NSIC, Hyderabad, India (Nov 2022 – Mar 2023)</h4>
-    <p>Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.</p>
+ <section id="experience" style="max-width: 800px; margin: 4rem auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 4rem; color: #1a237e;">Internship & Employment Experience</h2>
+  
+  <div class="timeline">
 
-    <h4>Counselor | Voice for Girls, Hyderabad, India (Aug 2021 – Nov 2022)</h4>
-    <p>Provided mentorship and guidance to young students, fostering confidence and communication skills.</p>
-  </section>
+    <div class="timeline-item">
+      <div class="timeline-icon" style="background: #283593;">
+        🥯
+      </div>
+      <div class="timeline-content">
+        <h3 style="color: #283593;">Student Assistant</h3>
+        <h4 style="font-weight: 600; color: #555;">Einstein Bros. Bagels, UNT, Denton, TX</h4>
+        <time style="color: #777; font-weight: 500;">Nov 2024 – Present</time>
+        <p style="margin-top: 0.7rem; line-height: 1.6;">
+          Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.
+        </p>
+      </div>
+    </div>
 
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects in Business Analytics & Reporting</h2>
-    <ul>
-      <li><strong>Sales Forecasting Dashboard (Academic)</strong> – Built an interactive analysis system using Power BI and Excel for retail sales trend assessment.</li>
-      <li><strong>Customer Segmentation Model (Coursework)</strong> – Used K-means clustering and Python tools to generate client segments based on shopping behavior.</li>
-      <li><strong>Financial Performance Analysis (Academic)</strong> – Built KPI evaluation financial dashboards using Tableau with sample corporate data.</li>
-    </ul>
-  </section>
+    <div class="timeline-item">
+      <div class="timeline-icon" style="background: #c62828;">
+        💼
+      </div>
+      <div class="timeline-content">
+        <h3 style="color: #c62828;">Entrepreneurship Intern</h3>
+        <h4 style="font-weight: 600; color: #555;">NSIC, Hyderabad, India</h4>
+        <time style="color: #777; font-weight: 500;">Nov 2022 – Mar 2023</time>
+        <p style="margin-top: 0.7rem; line-height: 1.6;">
+          Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.
+        </p>
+      </div>
+    </div>
 
-  <section id="leadership" data-aos="fade-up">
-    <h2>Leadership & Community Involvement</h2>
-    <ul>
-      <li><strong>UNT Business Analytics Club</strong> – Active Member since Jan 2024. Engaged in seminars, analytics challenges, and peer learning events.</li>
-      <li><strong>Ad Mad Competition – Winner (Hyderabad, 2022)</strong> – Led a creative ad campaign addressing a social challenge, emphasizing innovation and marketing insight.</li>
-      <li><strong>National-Level Swimmer</strong> – Represented school and undergraduate college at national swim meets, demonstrating discipline, competitive spirit, and time management.</li>
-    </ul>
-  </section>
+    <div class="timeline-item">
+      <div class="timeline-icon" style="background: #00796b;">
+        🎓
+      </div>
+      <div class="timeline-content">
+        <h3 style="color: #00796b;">Counselor</h3>
+        <h4 style="font-weight: 600; color: #555;">Voice for Girls, Hyderabad, India</h4>
+        <time style="color: #777; font-weight: 500;">Aug 2021 – Nov 2022</time>
+        <p style="margin-top: 0.7rem; line-height: 1.6;">
+          Provided mentorship and guidance to young students, fostering confidence and communication skills.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" style="padding: 3rem 1rem; background: #f0f4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: auto;">
+  <h2 style="text-align: center; font-weight: 800; color: #1a237e; margin-bottom: 3rem; letter-spacing: 1.5px; font-size: 2.8rem;">
+    Projects in Business Analytics & Reporting
+  </h2>
+
+  <div class="timeline" style="position: relative; padding-left: 40px; border-left: 4px solid #4e73df;">
+
+    <!-- Project 1 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 3.5rem;">
+      <span class="timeline-icon" aria-hidden="true" style="
+        position: absolute;
+        left: -30px;
+        top: 0;
+        background: #4e73df;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 0 10px #4e73dfaa;
+        transition: box-shadow 0.3s ease;
+      ">📊</span>
+      <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(78 115 223 / 0.15); transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0; color: #2a2a72; font-weight: 700; font-size: 1.4rem;">
+          Sales Forecasting Dashboard <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
+        </h3>
+        <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
+          Developed an interactive dashboard leveraging <strong>Power BI</strong> and <strong>Excel</strong> to analyze retail sales trends and forecast demand for data-driven strategies.
+        </p>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <span style="background: #dde4ff; color: #4e73df; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Power BI</span>
+          <span style="background: #dde4ff; color: #4e73df; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Excel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 3.5rem;">
+      <span class="timeline-icon" aria-hidden="true" style="
+        position: absolute;
+        left: -30px;
+        top: 0;
+        background: #ef5350;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 0 10px #ef5350aa;
+        transition: box-shadow 0.3s ease;
+      ">🤖</span>
+      <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(239 83 80 / 0.15); transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0; color: #b71c1c; font-weight: 700; font-size: 1.4rem;">
+          Customer Segmentation Model <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Coursework)</small>
+        </h3>
+        <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
+          Implemented K-means clustering using <strong>Python</strong> to segment customers based on shopping behaviors, enhancing targeted marketing efforts.
+        </p>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <span style="background: #fddede; color: #b71c1c; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Python</span>
+          <span style="background: #fddede; color: #b71c1c; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">K-means</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="timeline-item" style="position: relative; margin-bottom: 3.5rem;">
+      <span class="timeline-icon" aria-hidden="true" style="
+        position: absolute;
+        left: -30px;
+        top: 0;
+        background: #29b6f6;
+        color: white;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 0 10px #29b6f6aa;
+        transition: box-shadow 0.3s ease;
+      ">📈</span>
+      <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(41 182 246 / 0.15); transition: box-shadow 0.3s ease;">
+        <h3 style="margin-top: 0; color: #01579b; font-weight: 700; font-size: 1.4rem;">
+          Financial Performance Analysis <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
+        </h3>
+        <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
+          Created KPI dashboards with <strong>Tableau</strong> to visualize financial data, allowing easy monitoring of corporate performance metrics.
+        </p>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <span style="background: #d1efff; color: #01579b; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Tableau</span>
+          <span style="background: #d1efff; color: #01579b; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">KPIs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
     
 <section id="leadership" style="padding: 2rem; max-width: 800px; margin: auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <h2 style="text-align: center; font-weight: 700; font-size: 2.2rem; margin-bottom: 2rem; color: #222;">Leadership & Community Involvement</h2>
@@ -1527,7 +1782,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearElem = document.getElementById("current-year");
   if (yearElem) yearElem.textContent = new Date().getFullYear();
 });
+  // Animate progress bars when the skills section is in viewport
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
 
+  function animateProgressBars() {
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+      if (isInViewport(item) && !item.classList.contains('animated')) {
+        const progressFill = item.querySelector('.progress-fill');
+        const percent = item.getAttribute('data-percent');
+        progressFill.style.width = percent + '%';
+        item.classList.add('animated');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animateProgressBars);
+  window.addEventListener('load', animateProgressBars);
+
+    // Wait for DOM to load
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Animate once
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    items.forEach(item => observer.observe(item));
+  });
+  
 </script>
 </body>
 </html>
