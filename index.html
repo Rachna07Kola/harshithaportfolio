@@ -15,15 +15,8 @@
 
   <!-- Optional: Font Awesome Kit (Use this only if you don't use the CDN link above) -->
   <!-- <script src="https://kit.fontawesome.com/3d5c46f6e6.js" crossorigin="anonymous"></script> -->
-</head
+</head>
 <style>
-  :root {
-  --primary: #2a6592;
-  --secondary: #f39c12;
-  --dark: #222831;
-  --light: #f5f5f5;
-  --transition: all 0.3s ease;
-}
 
 * {
   margin: 0;
@@ -1071,6 +1064,63 @@ footer {
   }
 }
 
+
+    /* Unique Keyframe Animations */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes rotateFadeIn {
+      0% {
+        opacity: 0;
+        transform: rotate(-15deg) translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: rotate(0) translateX(0);
+      }
+    }
+
+    /* Animation utility classes */
+    .animate-fadeSlideUp {
+      animation: fadeSlideUp 1s ease forwards;
+    }
+    .animate-bounceIn {
+      animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    }
+    .animate-rotateFadeIn {
+      animation: rotateFadeIn 1s ease-out forwards;
+    }
+
+    /* Trigger animations when elements come into viewport */
+    .hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
   
 </style>
   <body>
@@ -1354,10 +1404,8 @@ footer {
     <p>Made with by Harshitha</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Initialize AOS
-  AOS.init({ duration: 1200 });
+
 
   // Scroll-based animations (fade-up and fade-in)
   const fadeUpElements = document.querySelectorAll('.fade-up, .fade-in');
@@ -1429,8 +1477,28 @@ footer {
       }
     });
   });
-</script>
 
-  </script>
+      // Simple IntersectionObserver to trigger animations on scroll
+    document.addEventListener("DOMContentLoaded", () => {
+      const options = { threshold: 0.2 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("hidden");
+            if (entry.target.dataset.anim === "fadeSlideUp") {
+              entry.target.classList.add("animate-fadeSlideUp");
+            } else if (entry.target.dataset.anim === "bounceIn") {
+              entry.target.classList.add("animate-bounceIn");
+            } else if (entry.target.dataset.anim === "rotateFadeIn") {
+              entry.target.classList.add("animate-rotateFadeIn");
+            }
+            observer.unobserve(entry.target); // Animate once only
+          }
+        });
+      }, options);
+
+      document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
+    });
+</script>
 </body>
 </html>
