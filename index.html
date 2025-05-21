@@ -13,14 +13,10 @@
   <!-- AOS CDN (include in <head> or before closing </body>) -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 <style>
-
-
-
   
   /* Reset & base */
 * {
@@ -36,41 +32,80 @@ body {
 }
 
 /* Navbar */
-.navbar {
-  background: #1a237e;
-  padding: 1rem 2rem;
-  position: sticky;
+/* Animated Gradient + Neon Glow + Glassmorphism */
+.animated-navbar {
+  background: linear-gradient(-45deg, #f6d365, #fda085, #84fab0, #8fd3f4);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  position: fixed;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  width: 100%;
+  z-index: 999;
+  padding: 20px 0;
+  transition: all 0.4s ease;
 }
 
+/* Neon glow hover */
+.nav-links li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px #fff, 0 0 20px #fda085, 0 0 25px #84fab0;
+  transform: scale(1.08);
+}
+
+/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
-  color: #dde4ff;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-  color: #ffca28; /* highlight color */
+.nav-links li i {
+  margin-right: 10px;
 }
 
-/* Icons style */
-.nav-links li a i {
-  font-size: 1.1rem;
+/* Scroll transform (shrink navbar) */
+.shrink {
+  padding: 10px 0 !important;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animated gradient keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 /* Hero Section */
@@ -593,66 +628,28 @@ footer a:hover {
   font-size: 1.2rem;
 }
 
-/*Character Agent*/
 
-  .character {
-    position: fixed;
-    bottom: 10px;
-    left: 50px;
-    width: 100px;
-    height: auto;
-    z-index: 5;
-    transition: left 1s ease-in-out;
-  }
 
-  .bubble {
-    position: fixed;
-    bottom: 130px;
-    left: 70px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    font-size: 14px;
-    width: 150px;
-    z-index: 6;
-  }
-
-  nav button {
-    background-color: #f9d5ec;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  nav button:hover {
-    background-color: #ffb3dd;
-  }
 </style>
   <body>
 
-<!-- Character Agent -->
-<img src="https://i.imgur.com/qkdpN.jpg" class="character" id="agent" alt="Cute Girl Character"/>
-<div class="bubble" id="bubble">Hi, I'm Harshitha! Let's explore!</div>
 
     
 <header>
-  <nav class="navbar">
-    <ul class="nav-links" id="nav">
-      <li><a href="#about" onclick="moveCharacter('about')"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="#career" onclick="moveCharacter('career')"><i class="fas fa-briefcase"></i> Career</a></li>
-      <li><a href="#education" onclick="moveCharacter('education')"><i class="fas fa-graduation-cap"></i> Education</a></li>
-      <li><a href="#skills" onclick="moveCharacter('skills')"><i class="fas fa-code"></i> Skills</a></li>
-      <li><a href="#experience" onclick="moveCharacter('experience')"><i class="fas fa-laptop-code"></i> Experience</a></li>
-      <li><a href="#projects" onclick="moveCharacter('projects')"><i class="fas fa-project-diagram"></i> Projects</a></li>
-      <li><a href="#leadership" onclick="moveCharacter('leadership')"><i class="fas fa-users-cog"></i> Leadership</a></li>
-      <li><a href="#contact" onclick="moveCharacter('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
+  <nav class="animated-navbar" id="navbar">
+    <ul class="nav-links">
+      <li><a href="#about"><i class="fas fa-user"></i><span>About</span></a></li>
+      <li><a href="#career"><i class="fas fa-briefcase"></i><span>Career</span></a></li>
+      <li><a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+      <li><a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a></li>
+      <li><a href="#experience"><i class="fas fa-laptop-code"></i><span>Experience</span></a></li>
+      <li><a href="#projects"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
+      <li><a href="#leadership"><i class="fas fa-users-cog"></i><span>Leadership</span></a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
     </ul>
   </nav>
 </header>
+
 
 
     
@@ -1319,30 +1316,15 @@ if (window.AOS) {
     easing: 'ease-in-out'
   });
 }
-
-
-
-const agent = document.getElementById('agent');
-  const bubble = document.getElementById('bubble');
-
-  function moveCharacter(sectionId) {
-    const section = document.getElementById(sectionId);
-    const rect = section.getBoundingClientRect();
-    const centerX = window.innerWidth / 2;
-    const agentX = rect.left + centerX;
-
-    // Move agent
-    agent.style.left = `${Math.max(10, Math.min(window.innerWidth - 100, agentX - 50))}px`;
-
-    // Speak
-    bubble.innerText = `Going to ${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}!`;
-
-    // Navigate
-    section.scrollIntoView({ behavior: 'smooth' });
-  }
-
+  window.addEventListener("scroll", function () {
+    const navbar = document.getElementById("navbar");
+    if (window.scrollY > 50) {
+      navbar.classList.add("shrink");
+    } else {
+      navbar.classList.remove("shrink");
+    }
+  });
   
-
 </script>
 </body>
 </html>
