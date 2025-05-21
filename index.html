@@ -20,42 +20,7 @@
 <style>
 
 
-/* Page Background */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Times New Roman', Times, serif;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e4e9f7 50%, #d3d8f2 100%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-x: hidden;
-}
 
-/* Optional Background Pattern Layer (Geometric dots) */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(78,115,223,0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Optional Glass Effect Card (for career summary or sections) */
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 900px;
-}
   
   /* Reset & base */
 * {
@@ -404,63 +369,52 @@ footer a:hover {
   }
 
 /* Career Summary Animation */
+
+/* Animate the card */
 .career-summary-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to right, #f8f9ff, #e8ebf9);
 }
 
-.career-summary-section.visible {
+.career-card {
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 800px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.career-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Card Styling */
-.career-card {
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center; /* Center all text content */
-}
-
-/* Animated Title Styling */
 .career-title {
   font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
   color: #1a237e;
-  position: relative;
-  display: inline-block;
-  animation: fadeInDrop 1s ease forwards;
-  opacity: 0;
+  border-bottom: 2px solid #4e73df;
+  padding-bottom: 0.5rem;
 }
 
-/* Animation Keyframes */
-@keyframes fadeInDrop {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.career-summary-section.visible .career-title {
-  opacity: 1;
-}
-
-/* Optional content styling */
 .career-content-panel p {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.75;
   color: #444;
+  text-align: justify;
+  padding: 0 1rem;
+  font-family: 'Times New Roman', Times, serif;
 }
-
+/* About Animation */
 
 .about-section-unique {
   background: #f8f9ff;
@@ -678,17 +632,15 @@ footer a:hover {
 
 
 
-  
-  <section class="career-summary-section">
-  <div class="career-card glass-card">
+
+<section class="career-summary-section">
+  <div class="career-card fade-in-card">
     <h2 class="career-title">Career Summary</h2>
     <div class="career-content-panel">
       <p> Detail-oriented and analytical master’s student specializing in Business Analytics, with a Bachelor of Commerce in Computer Applications. I am skilled in data analysis, problem-solving, and leveraging technology for business insights. Adept at applying statistical and analytical tools to drive decision-making and optimize business performance. </p>
     </div>
   </div>
 </section>
-
-
 
 
 
@@ -1259,22 +1211,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Career summary section fade-in
-document.addEventListener("DOMContentLoaded", () => {
-  const careerSection = document.querySelector(".career-summary-section");
-  if (!careerSection) return;
 
-  function handleCareerScroll() {
-    const rect = careerSection.getBoundingClientRect();
+document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector(".career-card");
+
+  function handleScroll() {
+    const rect = section.getBoundingClientRect();
     if (rect.top < window.innerHeight - 100) {
-      careerSection.classList.add("visible");
-      window.removeEventListener("scroll", handleCareerScroll);
+      section.classList.add("visible");
+      window.removeEventListener("scroll", handleScroll); // Animate once
     }
   }
 
-  window.addEventListener("scroll", handleCareerScroll);
-  handleCareerScroll();
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Check on load
 });
-
+  
 // Education items fade-in on scroll
 document.addEventListener("DOMContentLoaded", () => {
   const eduItems = document.querySelectorAll(".edu-item");
