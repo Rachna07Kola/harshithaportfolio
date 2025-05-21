@@ -364,7 +364,7 @@ footer a:hover {
     transition: width 1.5s ease-in-out;
   }
 
-  /* Career Summary Animation */
+/* Career Summary Animation */
 .career-summary-section {
   opacity: 0;
   transform: translateY(50px);
@@ -376,7 +376,7 @@ footer a:hover {
   transform: translateY(0);
 }
 
-/* Optional styling for the card */
+/* Card Styling */
 .career-card {
   background-color: #ffffff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -384,15 +384,38 @@ footer a:hover {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
+  text-align: center; /* Center all text content */
 }
 
+/* Animated Title Styling */
 .career-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
   color: #1a237e;
+  position: relative;
+  display: inline-block;
+  animation: fadeInDrop 1s ease forwards;
+  opacity: 0;
 }
 
+/* Animation Keyframes */
+@keyframes fadeInDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.career-summary-section.visible .career-title {
+  opacity: 1;
+}
+
+/* Optional content styling */
 .career-content-panel p {
   font-size: 1.05rem;
   line-height: 1.7;
@@ -672,104 +695,8 @@ footer a:hover {
 
 
 
-<section id="skills" class="skills-section">
-  <div class="skills-container">
-    <h2 class="skills-title"> Technical & Analytical Skills</h2>
-    <ul class="skills-list">
-      <li>
-        <span class="skill-name">Python</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">NumPy</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Pandas</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 88%;">88%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">R</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Power BI</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 82%;">82%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Tableau</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 87%;">87%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">MySQL</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Excel</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Big Data</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">MS Excel</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">NoSQL</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 75%;">75%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">MongoDB</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 78%;">78%</div></div>
-      </li>
-      <li>
-        <span class="skill-name">Google Cloud Platform (GCP)</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
-      </li>
-    </ul>
-  </div>
-</section>
 
 
-
-
-
-
-    
-
-
-<!-- ACCORDION-->
- <section id="experience" class="accordion-section" style="max-width: 800px; margin: 4rem auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
-  <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 3rem; color: #1a237e;">Internship & Employment Experience</h2>
-
-  <div class="accordion-item">
-    <button class="accordion-header">
-      <span>💼</span> Entrepreneurship/Business Development Intern, NSIC – Hyderabad, IND
-      <time>May 2022 – Mar 2023</time>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-content">
-      <p>I worked on understanding how market trends, financial feasibility, and industrial awareness impact small business growth. My role was to analyze market data, evaluate business growth patterns, and develop insights to help small businesses make informed decisions. I collected and analyzed data from small businesses, identified trends in sales, customer demand, and industry growth, and created a basic financial model to assess business viability.</p>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <button class="accordion-header">
-      <span>🎓</span> Counselor/Data Insights Mentor, Voice 4 Girls – Hyderabad, IND
-      <time>Aug 2021 – Mar 2022</time>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-content">
-      <p>I worked to empower students by helping them develop key skills for personal and academic growth. My goal was to mentor students, analyze learning patterns, and provide insights on effective teaching strategies to improve engagement and knowledge retention. Conducted interactive counseling sessions, assessed student progress using qualitative insights, and adapted my mentoring techniques based on observed trends. Additionally, I used basic data analysis methods (surveys, feedback tracking) to understand learning gaps and improve counseling effectiveness. Improved students’ confidence, problem-solving, and decision-making skills, while also strengthening my ability to analyze behavioral trends, communicate insights effectively, and apply data-driven approaches to learning.</p>
-    </div>
-  </div>
-</section>
-
-
-
-    <!-- SKILL 01-->
 
 
 <section id="skills" class="skills-section" aria-label="Technical and Analytical Skills">
@@ -849,6 +776,41 @@ footer a:hover {
     </li>
   </ul>
 </section>
+
+
+
+    
+
+
+<!-- ACCORDION-->
+ <section id="experience" class="accordion-section" style="max-width: 800px; margin: 4rem auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 3rem; color: #1a237e;">Internship & Employment Experience</h2>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>💼</span> Entrepreneurship/Business Development Intern, NSIC – Hyderabad, IND
+      <time>May 2022 – Mar 2023</time>
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <p>I worked on understanding how market trends, financial feasibility, and industrial awareness impact small business growth. My role was to analyze market data, evaluate business growth patterns, and develop insights to help small businesses make informed decisions. I collected and analyzed data from small businesses, identified trends in sales, customer demand, and industry growth, and created a basic financial model to assess business viability.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>🎓</span> Counselor/Data Insights Mentor, Voice 4 Girls – Hyderabad, IND
+      <time>Aug 2021 – Mar 2022</time>
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <p>I worked to empower students by helping them develop key skills for personal and academic growth. My goal was to mentor students, analyze learning patterns, and provide insights on effective teaching strategies to improve engagement and knowledge retention. Conducted interactive counseling sessions, assessed student progress using qualitative insights, and adapted my mentoring techniques based on observed trends. Additionally, I used basic data analysis methods (surveys, feedback tracking) to understand learning gaps and improve counseling effectiveness. Improved students’ confidence, problem-solving, and decision-making skills, while also strengthening my ability to analyze behavioral trends, communicate insights effectively, and apply data-driven approaches to learning.</p>
+    </div>
+  </div>
+</section>
+
+
+
     
    <!--Project-->
 <section id="projects" style="padding: 3rem 1rem; background: #f0f4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: auto;">
