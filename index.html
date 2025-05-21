@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Harshitha's Business Analyst Portfolio</title>
+
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Font Awesome CDN (Choose only one method - either this or the kit below) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pVf3Y0s7szkOCe/6RFLxCn3+FsGTV2wF1H7tW9RaZa3wYXgciK4nRWVevVqRElNIR7VrKBSZc1bBt5LKUfFAIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Optional: Font Awesome Kit (Use this only if you don't use the CDN link above) -->
+  <!-- <script src="https://kit.fontawesome.com/3d5c46f6e6.js" crossorigin="anonymous"></script> -->
+</head
+<style>
+  :root {
+  --primary: #2a6592;
+  --secondary: #f39c12;
+  --dark: #222831;
+  --light: #f5f5f5;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', serif;
+  scroll-behavior: smooth;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Times New Roman', serif;
+  background-color: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(34, 40, 49, 0.95);
+  padding: 1rem 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(34, 40, 49, 0.9), rgba(42, 101, 146, 0.8));
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+  padding: 5rem 2rem 2rem 2rem;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero h1, .hero h2, .hero p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  animation-delay: 0.5s;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: var(--secondary);
+  animation-delay: 0.8s;
+  margin-bottom: 2rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  animation-delay: 1.1s;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards 1.4s;
+}
+
+.cta-btn {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.primary-btn {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+.primary-btn:hover {
+  background-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.secondary-btn {
+  border: 2px solid white;
+  color: white;
+}
+
+.secondary-btn:hover {
+  background-color: white;
+  color: var(--dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Sections */
+section {
+  padding: 5rem 0;
+  scroll-margin-top: 70px;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--secondary);
+}
+
+/* Specific About Section Style */
+#about {
+  background-color: white;
+}
+
+.about-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Parallax Background */
+.parallax {
+  background-image: url('image -work from office.jpg');
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0f172a;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  --primary: #2a6592;
+  --secondary: #f39c12;
+  --dark: #333;
+  --text-muted: #555;
+  --transition: all 0.3s ease;
+  --radius: 10px;
+}
+
+/* Utility Classes */
+.card {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.section-light {
+  background-color: #f9f9f9;
+}
+
+/* About Section */
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.about-image {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-card {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  background-color: var(--primary);
+  color: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 250px;
+}
+
+.about-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.about-card p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #f0f0f0;
+}
+
+/* Skills Section */
+.skills-section {
+  composes: section-light;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  composes: card;
+}
+
+.skill-category h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.skill-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary);
+}
+
+.skill-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-list li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.skill-list li::before {
+  content: '✓';
+  color: var(--secondary);
+  margin-right: 0.7rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Projects Section */
+.projects-section {
+  background-color: white;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-image {
+  height: 200px;
+  background-color: var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.1);
+}
+
+.project-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(42, 101, 146, 0.7), rgba(243, 156, 18, 0.7));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project-card:hover .project-image::after {
+  opacity: 1;
+}
+
+.project-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.project-content p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.project-link:hover {
+  background-color: var(--secondary);
+  color: var(--dark);
+}
+
+/* Experience Section (Timeline) */
+.experience-section {
+  composes: section-light;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  margin-bottom: 3rem;
+  position: relative;
+  width: 100%;
+  clear: both;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-content {
+  composes: card;
+  position: relative;
+  width: calc(50% - 40px);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  float: left;
+  margin-right: 40px;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  float: right;
+  margin-left: 40px;
+  text-align: left;
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Timeline Styles */
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-date {
+  flex: 0 0 120px;
+  font-weight: bold;
+  color: var(--primary);
+  position: relative;
+  padding-right: 1rem;
+}
+
+.timeline-content {
+  background-color: var(--light);
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  flex: 1;
+  transition: var(--transition);
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: -15px;
+  transform: translateX(-100%);
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--light);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 120px;
+  top: 1rem;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+  padding-left: 1rem;
+  padding-right: 0;
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  left: auto;
+  right: -15px;
+  transform: translateX(100%) rotate(180deg);
+  border-right: none;
+  border-left: 8px solid var(--light);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: auto;
+  right: 120px;
+  transform: translateX(50%);
+}
+
+/* Timeline Responsive */
+@media (max-width: 768px) {
+  .timeline-item,
+  .timeline-date,
+  .timeline-content {
+    text-align: center;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100% !important;
+  }
+
+  .timeline-date {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-content::after {
+    display: none;
+  }
+
+  .timeline-dot {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+/* Education & Leadership */
+.education-container,
+.leadership-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.education-item,
+.leadership-item {
+  background-color: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.education-item:hover,
+.leadership-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.education-item h3,
+.leadership-item h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.education-item p,
+.leadership-item p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.footer-links,
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.social-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a,
+.social-links a {
+  color: #eee;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover,
+.social-links a:hover,
+.footer-links a:focus,
+.social-links a:focus {
+  color: var(--light);
+  outline: 2px solid var(--secondary);
+  outline-offset: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #666;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Utility Keyframes */
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1); }
+}
+
+/* Optional Print Styles */
+@media print {
+  footer,
+  .leadership-section,
+  .timeline-dot::after {
+    display: none;
+  }
+}
+
+/* ====================
+   Section Titles
+==================== */
+.section-title h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* ====================
+   Navbar & Scroll Effects
+==================== */
+.navbar.scrolled {
+  background-color: #333;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Navigation Link Hover Underline */
+.nav-link {
+  position: relative;
+  cursor: pointer;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6b6b;
+  transition: width 0.3s;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Fade-Up Animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ====================
+   Scroll to Top Button
+==================== */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  font-size: 1.3rem;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  transition: bottom 0.3s ease;
+}
+.scroll-top.show,
+.scroll-top.active {
+  display: block;
+}
+.scroll-top.active {
+  bottom: 20px;
+}
+
+/* ====================
+   Call To Action (CTA) Buttons
+==================== */
+.cta-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-size: 0.95rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  background-color: #1f78d1;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 12px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: #135ca7;
+  transform: scale(1.05);
+}
+
+.primary-btn {
+  background-color: #007bff;
+}
+
+.secondary-btn {
+  background-color: #e2e6ea;
+  color: #333;
+}
+
+/* ====================
+   Timeline Styles
+==================== */
+.timeline-date {
+  margin-left: 55px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 20px;
+  transform: translateX(-50%);
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after,
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 8px 12px 8px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* ====================
+   Projects Section
+==================== */
+.projects-section {
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+.project {
+  background: #fff;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-toggle-btn {
+  width: 100%;
+  padding: 18px 24px;
+  background-color: #004aad;
+  color: #fff;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-toggle-btn:hover {
+  background-color: #003080;
+}
+
+.project-details {
+  display: none;
+  padding: 20px 24px;
+  color: #444;
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.project-details.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ====================
+   Education Card Animation
+==================== */
+.edu-card.animate:hover {
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1); }
+  50%      { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.1); }
+}
+
+/* ====================
+   Responsive Styles
+==================== */
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-content::after,
+  .timeline-item:nth-child(even) .timeline-content::after {
+    left: -12px;
+    border-width: 8px 12px 8px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  .timeline-date {
+    margin-left: 55px;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+}
+
+/* Small phones */
+@media screen and (max-width: 576px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+
+  .cta-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .cta-btn {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .scroll-top {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    right: 20px;
+    bottom: -60px;
+  }
+  .scroll-top.active {
+    bottom: 20px;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+}
+
+  
+</style>
+  <body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo"></a> <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Hi, I'm Harshitha</h1>
+      <h2>Business Analyst | Financial Analyst </h2>
+      <div class="cta-container">
+        <a href="#projects" class="cta-btn primary-btn">View My Work</a>
+        <a href="#contact" class="cta-btn secondary-btn">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Career Summary</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text fade-up">
+          <p>I am a detail-oriented and driven master’s student in Business Analytics at the University of North Texas, with a strong foundation in data analysis, problem-solving, and business intelligence. With experience in AI-driven solutions, data visualization, and statistical modeling, I am skilled at turning complex data into actionable insights that support strategic decision-making. My hands-on work includes projects in malnutrition analytics, AI-powered hiring systems, and fraud detection, showcasing my ability to blend technical expertise with real-world impact. I am proficient in Python, Tableau, SQL, and cloud technologies, and passionate about leveraging data to drive business growth and innovation.</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section">
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Technical & Analytical Skills</h2>
+    </div>
+    <div class="skills-container">
+      <ul>
+        <li class="skill-item" data-skill="Python, R, SQL">
+          <strong>Languages & Programming:</strong> Python, R, SQL
+        </li>
+        <li class="skill-item" data-skill="Tableau, Power BI, Excel">
+          <strong>Visualization & BI Tools:</strong> Tableau, Power BI, Excel
+        </li>
+        <li class="skill-item" data-skill="TensorFlow, PyTorch, Predictive Analytics, Data Mining">
+          <strong>Machine Learning & Analysis:</strong> TensorFlow, PyTorch, Predictive Analytics, Data Mining
+        </li>
+        <li class="skill-item" data-skill="Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc">
+          <strong>Accounting & Finance Tools:</strong> Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc
+        </li>
+        <li class="skill-item" data-skill="SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance">
+          <strong>ERP & Financial Systems:</strong> SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance
+        </li>
+        <li class="skill-item" data-skill="Google Sheets, OneDrive, Adaptive Insights">
+          <strong>Cloud-Based Platforms & Tools:</strong> Google Sheets, OneDrive, Adaptive Insights
+        </li>
+        <li class="skill-item" data-skill="Agile Project Management, Microsoft Office Suite">
+          <strong>Other:</strong> Agile Project Management, Microsoft Office Suite
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section id="experience" class="experience-section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline">
+        <p style="text-align:center;"><i>Experience timeline goes here...</i></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="education-section">
+  <div class="section-container">
+    <div class="section-title">
+      <h2>Education</h2>
+    </div>
+    <div class="education-cards">
+      <div class="edu-card animate">
+        <h3>University of North Texas, Denton, TX</h3>
+        <p><strong>Master of Science in Business Analytics</strong></p>
+        <p><em>GPA: 3.5 | Expected: Dec 2025</em></p>
+        <p><strong>Key Courses:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
+      </div>
+
+      <div class="edu-card animate">
+        <h3>St. Pious X Degree College, Hyderabad, India</h3>
+        <p><strong>Bachelor of Commerce in Computer Applications</strong></p>
+        <p><em>GPA: 4.0 | Graduated: May 2023</em></p>
+        <p><strong>Relevant Courses:</strong> Financial Planning, E-Commerce, IFRS, Business Stats, Cost Accounting, Business Economics</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="projects" class="projects-section">
+    <div class="section-title">
+      <h2>Projects</h2>
+    </div>
+
+    <!-- Project 01 -->
+    <div class="project">
+      <button class="project-toggle-btn" onclick="toggleProject('project1')">
+        Project 01: Visualizing Global Trends in Child Malnutrition
+      </button>
+      <div id="project1" class="project-details">
+        <p><strong>Overview:</strong> Conducted a comprehensive analysis using datasets from WHO, UNICEF, and the World Bank to explore global child malnutrition trends.</p>
+        <p><strong>Key Metrics:</strong> Stunting, wasting, underweight, and overweight across regions.</p>
+        <a href="https://data.unicef.org/resources/dataset/malnutrition-data/" target="_blank" class="cta-btn">🌐 View Dataset</a>
+        <p><strong>Highlight:</strong> Identified Yemen and Papua New Guinea as critical hotspots, influencing NGO outreach planning.</p>
+      </div>
+    </div>
+
+    <!-- Project 02 -->
+    <div class="project">
+      <button class="project-toggle-btn" onclick="toggleProject('project2')">
+        Project 02: Hiring Assistant AI – Agentic Resume Screening System
+      </button>
+      <div id="project2" class="project-details">
+        <p><strong>Overview:</strong> Built a privacy-focused, local AI assistant using Retrieval-Augmented Generation (RAG) for automating resume screening.</p>
+        <p><strong>Impact:</strong> Reduced hiring cycle time by 40% and improved transparency with bias-aware scoring.</p>
+        <a href="https://github.com/AmruthaRajsheker/AI-Driven-Banking-Fraud-Detection-and-Prevention-System" target="_blank" class="cta-btn">💻 View Repository</a>
+      </div>
+    </div>
+
+    <!-- Project 03 -->
+    <div class="project">
+      <button class="project-toggle-btn" onclick="toggleProject('project3')">
+        Project 03: AI-Based Fraud Detection System in Banking
+      </button>
+      <div id="project3" class="project-details">
+        <p><strong>Overview:</strong> Created an AI-powered fraud detection platform for banking, identifying threats like identity theft and cyber-fraud.</p>
+        <p><strong>Performance:</strong> Achieved sub-300ms fraud detection and 25% precision improvement, fully GDPR/CCPA compliant.</p>
+        <a href="https://github.com/AmruthaRajsheker/AI-Driven-Banking-Fraud-Detection-and-Prevention-System" target="_blank" class="cta-btn">🔗 View Repository</a>
+      </div>
+    </div>
+
+  </section>
+  <section id="leadership" class="leadership-section">
+    <div class="section-container">
+      <div class="section-title">
+        <h2>Leadership & Community Involvement</h2>
+      </div>
+      <div class="leadership-container">
+        <p style="text-align:center; grid-column: 1 / -1;"><i>Student Assistant Einstein Bros. Bagels, UNT, Denton, TX November 2024 – Present, Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.</i></p>
+         <p style="text-align:center; grid-column: 1 / -1;"><i>Entrepreneurship Intern NSIC, Hyderabad, India November 2022 – March 2023, Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.</i></p>
+         <p style="text-align:center; grid-column: 1 / -1;"><i>Counselor Voice for Girls, Hyderabad, India August 2021 - November 2022, Provided mentorship and guidance to young students, fostering confidence and communication skills.</i></p>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Harshitha. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="scroll-top" id="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <header>
+    <nav>
+      <div class="logo">Harshitha's Business Analyst Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>As a Business Analytics graduate student and University of North Texas graduate, I hold Bachelor's degrees in Commerce and Computer Applications. Maintaining a 4.0 GPA during undergraduate studies and 3.5 GPA in graduate studies, I combine practical knowledge in data analytics and enterprise technology systems. Skilled in Python, R, SQL, Tableau, Power BI, SAP, Oracle NetSuite, and Microsoft Dynamics 365. I balance strategic thinking and creativity through leadership, social outreach, and my national-level swimming experience, showcasing a blend of business intelligence, technical expertise, and value-driven approaches.</p>
+  </section>
+
+  <section id="career" data-aos="fade-up">
+    <h2>Career Summary</h2>
+    <p>As a Master’s in Business Analytics student at the University of North Texas, I bring detailed-driven analysis and data interpretation skills. I use predictive analytics and business strategy development to extract precise insights, empowering organizational growth and strategic decision-making.</p>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <h2>Education & Certifications</h2>
+    <h3>University of North Texas, Denton, TX</h3>
+    <p><em>Master of Science in Business Analytics</em> | GPA: 3.5 | Expected: Dec 2025</p>
+    <p><strong>Key Courses:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
+    <img src="./_blb.jpg" alt="G. Brint Ryan College of Business">
+
+    <h3>St. Pious X Degree College, Hyderabad, India</h3>
+    <p><em>Bachelor of Commerce in Computer Applications</em> | GPA: 4.0 | Graduated: May 2023</p>
+    <p><strong>Relevant Courses:</strong> Financial Planning and Performance, E-Commerce, IFRS, Business Statistics, Cost Accounting, Business Economics</p>
+    <img src="./st.piousx.jpg" alt="St. Pious College">
+
+    <h4>Certifications:</h4>
+    <ul>
+      <li>Entrepreneurship Orientation Program (NSIC)</li>
+      <li>Ad Mad Competition – Creative Strategy & Advertising</li>
+    </ul>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Technical & Analytical Skills</h2>
+    <h4>Languages & Programming:</h4>
+    <p>Python, R, SQL</p>
+    <h4>Visualization & BI Tools:</h4>
+    <p>Tableau, Power BI, Excel</p>
+    <h4>Machine Learning & Analysis:</h4>
+    <p>TensorFlow, PyTorch, Predictive Analytics, Data Mining</p>
+    <h4>Accounting & Finance Tools:</h4>
+    <p>Tally ERP9/Prime, QuickBooks, Sage Accounting, TaxCalc</p>
+    <h4>ERP & Financial Systems:</h4>
+    <p>SAP (FI Module), Oracle NetSuite, Microsoft Dynamics 365 Finance</p>
+    <h4>Cloud-Based Platforms & Tools:</h4>
+    <p>Google Sheets, OneDrive, Adaptive Insights</p>
+    <h4>Other:</h4>
+    <p>Agile Project Management, Microsoft Office Suite</p>
+    <img src="./_skills.png" alt="Skills">
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Internship & Employment Experience</h2>
+    <h4>Student Assistant | Einstein Bros. Bagels, UNT, Denton, TX (Nov 2024 – Present)</h4>
+    <p>Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.</p>
+
+    <h4>Entrepreneurship Intern | NSIC, Hyderabad, India (Nov 2022 – Mar 2023)</h4>
+    <p>Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.</p>
+
+    <h4>Counselor | Voice for Girls, Hyderabad, India (Aug 2021 – Nov 2022)</h4>
+    <p>Provided mentorship and guidance to young students, fostering confidence and communication skills.</p>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects in Business Analytics & Reporting</h2>
+    <ul>
+      <li><strong>Sales Forecasting Dashboard (Academic)</strong> – Built an interactive analysis system using Power BI and Excel for retail sales trend assessment.</li>
+      <li><strong>Customer Segmentation Model (Coursework)</strong> – Used K-means clustering and Python tools to generate client segments based on shopping behavior.</li>
+      <li><strong>Financial Performance Analysis (Academic)</strong> – Built KPI evaluation financial dashboards using Tableau with sample corporate data.</li>
+    </ul>
+  </section>
+
+  <section id="leadership" data-aos="fade-up">
+    <h2>Leadership & Community Involvement</h2>
+    <ul>
+      <li><strong>UNT Business Analytics Club</strong> – Active Member since Jan 2024. Engaged in seminars, analytics challenges, and peer learning events.</li>
+      <li><strong>Ad Mad Competition – Winner (Hyderabad, 2022)</strong> – Led a creative ad campaign addressing a social challenge, emphasizing innovation and marketing insight.</li>
+      <li><strong>National-Level Swimmer</strong> – Represented school and undergraduate college at national swim meets, demonstrating discipline, competitive spirit, and time management.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Made with by Harshitha</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({ duration: 1200 });
+
+  // Scroll-based animations (fade-up and fade-in)
+  const fadeUpElements = document.querySelectorAll('.fade-up, .fade-in');
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target); // Improves performance
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeUpElements.forEach(el => observer.observe(el));
+
+  // Toggle project sections
+  function toggleProject(id) {
+    const target = document.getElementById(id);
+    const allSections = document.querySelectorAll('.project-details');
+
+    allSections.forEach(section => {
+      if (section.id !== id) {
+        section.style.display = "none";
+      }
+    });
+
+    target.style.display = (target.style.display === "block") ? "none" : "block";
+  }
+
+  // Scroll to top button behavior
+  const scrollTopBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 300;
+    scrollTopBtn.classList.toggle('active', isScrolled);
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Dynamic year in footer
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+
+  // Navbar scroll effect
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.getElementById('nav-menu');
+  const navLinkItems = document.querySelectorAll('.nav-link');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
+
+  // Close mobile menu when a link is clicked
+  navLinkItems.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  });
+</script>
+
+  </script>
+</body>
+</html>
