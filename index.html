@@ -10,6 +10,11 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
+  <!-- AOS CDN (include in <head> or before closing </body>) -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
 </head>
 <style>
@@ -385,92 +390,46 @@ footer a:hover {
   color: #444;
 }
 
-  /* Container */
-.edu-timeline-section {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #222;
-  position: relative;
+
+.about-section-unique {
+  background: #f8f9ff;
+  padding: 4rem 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Title */
-.edu-title {
-  font-weight: 800;
-  font-size: 2.6rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #1a237e;
-}
-
-/* Timeline vertical line */
-.edu-timeline {
-  position: relative;
-  padding-left: 40px;
-  border-left: 3px solid #4e73df;
-}
-
-/* Each edu item container */
-.edu-item {
-  position: relative;
-  margin-bottom: 3rem;
-  width: 45%;
-  background: #f7f9ff;
-  padding: 1.8rem 2rem;
+.about-container {
+  max-width: 800px;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgb(78 115 223 / 0.12);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Circle on timeline */
-.edu-item::before {
-  content: '';
-  position: absolute;
-  left: -29px;
-  top: 1.5rem;
-  width: 20px;
-  height: 20px;
-  background: #4e73df;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #4e73dfaa;
+.about-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Left and right positioning */
-.animate-left {
-  transform: translateX(-50px);
-  left: 0;
+.section-heading-unique {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a237e;
+  text-align: center;
+  margin-bottom: 1.8rem;
 }
 
-.animate-right {
-  transform: translateX(50px);
-  margin-left: auto;
-  right: 0;
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
 }
 
-/* When visible (JS will add this class) */
-.edu-item.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Responsive: stack items on small screens */
-@media (max-width: 768px) {
-  .edu-item,
-  .animate-left,
-  .animate-right {
-    width: 100%;
-    margin-left: 0;
-    right: auto;
-    transform: translateX(0);
-  }
-  .edu-item::before {
-    left: -40px;
-    top: 1.2rem;
-  }
-}
-
+  
 .skills-subtitle {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
@@ -480,7 +439,135 @@ footer a:hover {
   border-bottom: 2px solid #4e73df;
   padding-bottom: 0.3rem;
 }
- 
+
+
+  /* Education */
+
+ /* Base styles */
+.edu-timeline-section {
+  padding: 4rem 1rem;
+  background: #f4f8fc;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.edu-title {
+  font-size: 2.5rem;
+  color: #1a237e;
+  margin-bottom: 2rem;
+}
+
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.edu-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInSlide 1.2s ease forwards;
+  position: relative;
+}
+
+.edu-item.animate-left {
+  animation-name: fadeInLeft;
+}
+
+.edu-item.animate-right {
+  animation-name: fadeInRight;
+}
+
+/* Education content box */
+.edu-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.edu-role {
+  font-weight: bold;
+  color: #2e3b55;
+}
+
+.edu-date {
+  color: #777;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.edu-detail p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Animation keyframes */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Certifications Section */
+.cert-section {
+  background: #ffffff;
+  padding: 3rem 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.cert-heading {
+  font-size: 2rem;
+  color: #1a237e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.cert-list {
+  list-style: none;
+  max-width: 800px;
+  margin: auto;
+  padding: 0;
+}
+
+.cert-item {
+  padding: 1rem;
+  background: #f0f4ff;
+  border-left: 4px solid #4e73df;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 6px;
+}
+
+.cert-item i {
+  color: #4e73df;
+  font-size: 1.2rem;
+}
+
 </style>
   <body>
    
@@ -541,7 +628,6 @@ footer a:hover {
   <h2 class="edu-title">Education</h2>
 
   <div class="edu-timeline">
-
     <div class="edu-item animate-left">
       <div class="edu-content">
         <h3>University of North Texas</h3>
@@ -559,17 +645,15 @@ footer a:hover {
       <div class="edu-content">
         <h3>Osmania University</h3>
         <p class="edu-role">Bachelor of Commerce (Computer Applications)</p>
-        <p class="edu-date">June 2020 - April 2023</p>
+        <p class="edu-date">June 2020 – April 2023</p>
         <div class="edu-detail">
           <p><strong>GPA:</strong> 4.0 / 4.0</p>
           <p><strong>Coursework:</strong> Database Management Systems, Business Statistics, Management Information Systems, Financial Accounting</p>
         </div>
       </div>
     </div>
-
   </div>
 </section>
-
 
 <section class="cert-section">
   <h4 class="cert-heading">Certifications & Workshops</h4>
@@ -578,6 +662,7 @@ footer a:hover {
     <li class="cert-item"><i class="fas fa-bullhorn"></i> Ad Mad Competition — Strategic advertising in high-pressure environments.</li>
   </ul>
 </section>
+
 
 
 
@@ -665,6 +750,67 @@ footer a:hover {
 
   </div>
 </section>
+<!-- SKILL 01-->
+
+    <section id="skills" class="skills-section">
+  <div class="skills-container">
+    <h2 class="skills-title">Technical & Analytical Skills</h2>
+    <ul class="skills-list">
+      <li>
+        <span class="skill-name">Python</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">NumPy</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 88%;">88%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">Pandas</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 89%;">89%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">R</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">Power BI</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 82%;">82%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">Tableau</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 87%;">87%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">MySQL</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 86%;">86%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">MS Excel</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">Big Data</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 75%;">75%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">NoSQL</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 78%;">78%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">MongoDB</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">Google Cloud Platform (GCP)</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+    
 
 
 <!-- ACCORDION-->
@@ -1008,7 +1154,11 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-
+  AOS.init({
+    duration: 1200,
+    once: true,
+    easing: 'ease-in-out'
+  });
 </script>
 </body>
 </html>
