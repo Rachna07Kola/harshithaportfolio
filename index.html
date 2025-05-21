@@ -18,6 +18,45 @@
 
 </head>
 <style>
+
+
+/* Page Background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e4e9f7 50%, #d3d8f2 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* Optional Background Pattern Layer (Geometric dots) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(78,115,223,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Optional Glass Effect Card (for career summary or sections) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+  
   /* Reset & base */
 * {
   box-sizing: border-box;
@@ -26,7 +65,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   background: #fafbff;
   color: #222;
 }
@@ -116,7 +155,7 @@ footer a:hover {
   padding: 2rem;
   max-width: 1000px;
   margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #leadership h2 {
@@ -299,7 +338,7 @@ footer a:hover {
   .skills-section {
     padding: 3rem 1rem;
     background: #f0f4ff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
     max-width: 700px;
     margin: 2rem auto;
     border-radius: 16px;
@@ -639,14 +678,16 @@ footer a:hover {
 
 
 
-<section id="career" class="career-summary-section animate-on-scroll">
-  <div class="career-card">
+  
+  <section class="career-summary-section">
+  <div class="career-card glass-card">
+    <h2 class="career-title">Career Summary</h2>
     <div class="career-content-panel">
-      <h2 class="career-title">Career Summary</h2>
       <p> Detail-oriented and analytical master’s student specializing in Business Analytics, with a Bachelor of Commerce in Computer Applications. I am skilled in data analysis, problem-solving, and leveraging technology for business insights. Adept at applying statistical and analytical tools to drive decision-making and optimize business performance. </p>
     </div>
   </div>
 </section>
+
 
 
 
