@@ -15,6 +15,15 @@
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+
+
+
 </head>
 <style>
 
@@ -589,11 +598,100 @@ header {
   margin-top: 4px;
 }
 
+  #vanta-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+  .edu-animated-section {
+  background: #f5f7fa;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.edu-title {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.edu-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.edu-info h3 {
+  margin: 0 0 0.5rem;
+  color: #2193b0;
+}
+
+.edu-role, .edu-date {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.edu-detail {
+  margin-top: 1rem;
+  color: #333;
+}
+
+/* Certifications */
+.cert-section {
+  padding: 3rem 2rem;
+  background: #ffffff;
+  text-align: center;
+}
+
+.cert-heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: auto;
+}
+
+.cert-item {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(-40px);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cert-item i {
+  color: #2193b0;
+}
+
   
 </style>
   <body>
     
 
+<div id="vanta-bg"></div>
+    
 <header>
   <nav class="navbar">
     <ul class="nav-links" id="nav">
@@ -664,84 +762,49 @@ header {
  
 
 
-<section id="education" class="edu-flip-section">
-  <h2 class="edu-title" data-aos="fade-up">Education</h2>
+<section id="education" class="edu-animated-section">
+  <h2 class="edu-title">Education</h2>
 
-  <div class="edu-timeline">
-    <!-- Card 1 -->
-    <div class="edu-timeline-entry" data-aos="flip-left" data-aos-duration="1000">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>University of North Texas</h3>
-            <p class="edu-role">M.S. Business Analytics</p>
-            <p class="edu-date">Expected Dec 2025</p>
-          </div>
-          <div class="flip-card-back">
-            <p><strong>GPA:</strong> 3.5</p>
-            <p>Specialization in Data Mining, Visualization, Predictive Modeling.</p>
-            <p>Capstone: Improved sales forecasts by 15% using ML models.</p>
-          </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>University of North Texas</h3>
+        <p class="edu-role">M.S. Business Analytics</p>
+        <p class="edu-date">Expected Dec 2025</p>
+        <div class="edu-detail">
+          <p><strong>GPA:</strong> 3.5</p>
+          <p>Specialization in Data Mining, Visualization, Predictive Modeling.</p>
+          <p>Capstone: Improved sales forecasts by 15% using ML models.</p>
         </div>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="edu-timeline-entry" data-aos="flip-right" data-aos-duration="1000">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>St. Pious X Degree College</h3>
-            <p class="edu-role">B.Com in Computer Applications</p>
-            <p class="edu-date">Graduated May 2023</p>
-          </div>
-          <div class="flip-card-back">
-            <p><strong>GPA:</strong> 4.0</p>
-            <p>Excelled in IFRS, Financial Planning, and Economics.</p>
-            <p>Led adoption of tech-integrated accounting systems.</p>
-          </div>
+    <div class="edu-card">
+      <div class="edu-info">
+        <h3>St. Pious X Degree College</h3>
+        <p class="edu-role">B.Com in Computer Applications</p>
+        <p class="edu-date">Graduated May 2023</p>
+        <div class="edu-detail">
+          <p><strong>GPA:</strong> 4.0</p>
+          <p>Excelled in IFRS, Financial Planning, and Economics.</p>
+          <p>Led tech-integrated accounting adoption on campus.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cert-section" data-aos="fade-up" data-aos-duration="1000">
+<section class="cert-section">
   <h4 class="cert-heading">Certifications & Workshops</h4>
   <ul class="cert-list">
-    <li>
-      <span class="cert-icon"><i class="fas fa-certificate"></i></span>
-      <strong>Entrepreneurship Orientation Program (NSIC):</strong>
-      Practical startup building, funding strategies & business models.
-    </li>
-    <li>
-      <span class="cert-icon"><i class="fas fa-lightbulb"></i></span>
-      <strong>Ad Mad Competition:</strong>
-      Creative ad campaigns and marketing challenges under time pressure.
-    </li>
+    <li class="cert-item"><i class="fas fa-rocket"></i> Entrepreneurship Orientation Program (NSIC) — Launching and sustaining startups.</li>
+    <li class="cert-item"><i class="fas fa-bullhorn"></i> Ad Mad Competition — Strategic advertising in high-pressure environments.</li>
   </ul>
 </section>
 
 
 
-<section 
-  data-aos="fade-up" 
-  data-aos-duration="1000" 
-  class="cert-section">
-  <h4 class="cert-heading"> Certifications & Workshops</h4>
-  <ul class="cert-list">
-    <li>
-      <span class="cert-icon"></span>
-      <strong>Entrepreneurship Orientation Program (NSIC)</strong> — Gained practical skills to launch and sustain startups.
-    </li>
-    <li>
-      <span class="cert-icon"></span>
-      <strong>Ad Mad Competition</strong> — Developed creative strategies & advertising expertise in a competitive environment.
-    </li>
-  </ul>
-</section>
 
-</section>
 
 
 <section id="skills" class="skills-section">
@@ -927,116 +990,6 @@ header {
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-    <!--Project-->
-
-  <section id="projects" style="padding: 3rem 1rem; background: #f0f4ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: auto;">
-  <h2 style="
-    text-align: center; 
-    font-weight: 800; 
-    color: #1a237e; 
-    margin-bottom: 3rem; 
-    letter-spacing: 1.5px; 
-    font-size: 2.8rem;
-  ">
-    Projects in Business Analytics & Reporting
-  </h2>
-
-  <div style="border-left: 4px solid #4e73df; padding-left: 40px; position: relative;">
-    <!-- Project 1 -->
-    <article style="position: relative; margin-bottom: 3.5rem; background: #fff; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgba(78, 115, 223, 0.15); transition: box-shadow 0.3s ease;">
-      <span aria-hidden="true" style="
-        position: absolute;
-        left: -34px;
-        top: 20px;
-        background: #4e73df;
-        color: #fff;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 0 12px #4e73dfaa;
-        transition: box-shadow 0.3s ease;
-      ">📊</span>
-
-      <h3 style="margin-top: 0; color: #2a2a72; font-weight: 700; font-size: 1.4rem;">
-        Sales Forecasting Dashboard <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
-      </h3>
-      <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
-        Developed an interactive dashboard leveraging <strong>Power BI</strong> and <strong>Excel</strong> to analyze retail sales trends and forecast demand for data-driven strategies.
-      </p>
-      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-        <span style="background: #dde4ff; color: #4e73df; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Power BI</span>
-        <span style="background: #dde4ff; color: #4e73df; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Excel</span>
-      </div>
-    </article>
-
-    <!-- Project 2 -->
-    <article style="position: relative; margin-bottom: 3.5rem; background: #fff; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgba(239, 83, 80, 0.15); transition: box-shadow 0.3s ease;">
-      <span aria-hidden="true" style="
-        position: absolute;
-        left: -34px;
-        top: 20px;
-        background: #ef5350;
-        color: #fff;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 0 12px #ef5350aa;
-        transition: box-shadow 0.3s ease;
-      ">🤖</span>
-
-      <h3 style="margin-top: 0; color: #b71c1c; font-weight: 700; font-size: 1.4rem;">
-        Customer Segmentation Model <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Coursework)</small>
-      </h3>
-      <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
-        Implemented K-means clustering using <strong>Python</strong> to segment customers based on shopping behaviors, enhancing targeted marketing efforts.
-      </p>
-      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-        <span style="background: #fddede; color: #b71c1c; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Python</span>
-        <span style="background: #fddede; color: #b71c1c; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">K-means</span>
-      </div>
-    </article>
-
-    <!-- Project 3 -->
-    <article style="position: relative; margin-bottom: 3.5rem; background: #fff; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgba(41, 182, 246, 0.15); transition: box-shadow 0.3s ease;">
-      <span aria-hidden="true" style="
-        position: absolute;
-        left: -34px;
-        top: 20px;
-        background: #29b6f6;
-        color: #fff;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 0 12px #29b6f6aa;
-        transition: box-shadow 0.3s ease;
-      ">📈</span>
-
-      <h3 style="margin-top: 0; color: #01579b; font-weight: 700; font-size: 1.4rem;">
-        Financial Performance Analysis <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
-      </h3>
-      <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
-        Created KPI dashboards with <strong>Tableau</strong> to visualize financial data, allowing easy monitoring of corporate performance metrics.
-      </p>
-      <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-        <span style="background: #d1efff; color: #01579b; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">Tableau</span>
-        <span style="background: #d1efff; color: #01579b; padding: 0.3rem 0.9rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;">KPIs</span>
-      </div>
-    </article>
   </div>
 </section>
 
@@ -1234,6 +1187,62 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.classList.toggle('show');
   });
   
+  VANTA.NET({
+    el: "#vanta-bg",
+    mouseControls: true,
+    touchControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.0,
+    color: 0x00c9ff,
+    backgroundColor: 0x0f2027
+  });
+   gsap.registerPlugin(ScrollTrigger);
+
+  // Animate education cards
+  gsap.utils.toArray(".edu-card").forEach((card, index) => {
+    gsap.to(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: index * 0.2
+    });
+  });
+
+  // Animate certification items
+  gsap.utils.toArray(".cert-item").forEach((item, index) => {
+    gsap.to(item, {
+      scrollTrigger: {
+        trigger: item,
+        start: "top 90%",
+        toggleActions: "play none none none"
+      },
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      delay: index * 0.1
+    });
+  });
+  
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.0,
+      color: 0x00c9ff,
+      backgroundColor: 0x0f2027,
+      points: 12.0,
+      maxDistance: 20.0,
+      spacing: 15.0
+    });
+
 </script>
 </body>
 </html>
