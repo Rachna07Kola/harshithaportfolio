@@ -1112,6 +1112,16 @@ footer {
       opacity: 0;
       visibility: hidden;
     }
+
+    .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  @media (max-width: 600px) {
+    .card {
+      flex: 1 1 100% !important;
+    }
+  }
   
 </style>
   <body>
@@ -1390,106 +1400,134 @@ footer {
       <li><strong>National-Level Swimmer</strong> – Represented school and undergraduate college at national swim meets, demonstrating discipline, competitive spirit, and time management.</li>
     </ul>
   </section>
+    
+<section id="leadership" style="padding: 2rem; max-width: 800px; margin: auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h2 style="text-align: center; font-weight: 700; font-size: 2.2rem; margin-bottom: 2rem; color: #222;">Leadership & Community Involvement</h2>
 
+  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+
+    <div class="card" style="flex: 1 1 250px; background: #f0f8ff; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="font-size: 3rem; color: #4a90e2; margin-bottom: 1rem; text-align: center;">📊</div>
+      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">UNT Business Analytics Club</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
+        Active Member since <strong>Jan 2024</strong>. Engaged in seminars, analytics challenges, and peer learning events.
+      </p>
+    </div>
+
+    <div class="card" style="flex: 1 1 250px; background: #fff0f6; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="font-size: 3rem; color: #e94e77; margin-bottom: 1rem; text-align: center;">🏆</div>
+      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">Ad Mad Competition – Winner (Hyderabad, 2022)</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
+        Led a creative ad campaign addressing a social challenge, emphasizing innovation and marketing insight.
+      </p>
+    </div>
+
+    <div class="card" style="flex: 1 1 250px; background: #e8f6f3; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <div style="font-size: 3rem; color: #34a853; margin-bottom: 1rem; text-align: center;">🏊‍♂️</div>
+      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">National-Level Swimmer</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
+        Represented school and undergraduate college at national swim meets, demonstrating discipline, competitive spirit, and time management.
+      </p>
+    </div>
+
+  </div>
+</section>
+    
   <footer>
     <p>Made with by Harshitha</p>
   </footer>
 
 <script>
 
-
-  // Scroll-based animations (fade-up and fade-in)
-  const fadeUpElements = document.querySelectorAll('.fade-up, .fade-in');
-  const observer = new IntersectionObserver((entries, obs) => {
+document.addEventListener("DOMContentLoaded", () => {
+  // Single IntersectionObserver for all animated elements
+  const observerOptions = { threshold: 0.2 };
+  const animateOnScroll = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target); // Improves performance
+        entry.target.classList.remove("hidden");
+        const animType = entry.target.dataset.anim;
+        if (animType === "fadeSlideUp") {
+          entry.target.classList.add("animate-fadeSlideUp");
+        } else if (animType === "bounceIn") {
+          entry.target.classList.add("animate-bounceIn");
+        } else if (animType === "rotateFadeIn") {
+          entry.target.classList.add("animate-rotateFadeIn");
+        } else {
+          // Default fade-in for elements with 'fade-up' or 'fade-in' classes
+          entry.target.classList.add("visible");
+        }
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  };
 
-  fadeUpElements.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+  // Observe all animation-related elements
+  document.querySelectorAll(".hidden, .fade-up, .fade-in").forEach(el => observer.observe(el));
 
   // Toggle project sections
-  function toggleProject(id) {
+  window.toggleProject = function(id) {
     const target = document.getElementById(id);
-    const allSections = document.querySelectorAll('.project-details');
+    const allSections = document.querySelectorAll(".project-details");
+    allSections.forEach(section => (section.id !== id ? section.style.display = "none" : null));
+    target.style.display = target.style.display === "block" ? "none" : "block";
+  };
 
-    allSections.forEach(section => {
-      if (section.id !== id) {
-        section.style.display = "none";
-      }
-    });
+  // Cache DOM elements for scroll toggles
+  const scrollTopBtn = document.getElementById("scroll-top");
+  const navbar = document.querySelector(".navbar");
 
-    target.style.display = (target.style.display === "block") ? "none" : "block";
+  // Debounce utility function
+  function debounce(fn, delay = 100) {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn(...args), delay);
+    };
   }
 
-  // Scroll to top button behavior
-  const scrollTopBtn = document.getElementById('scroll-top');
-  window.addEventListener('scroll', () => {
-    const isScrolled = window.scrollY > 300;
-    scrollTopBtn.classList.toggle('active', isScrolled);
-  });
+  // Combined scroll handler
+  const onScroll = debounce(() => {
+    const scrolled = window.scrollY > 300;
+    scrollTopBtn.classList.toggle("active", scrolled);
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
+  }, 100);
 
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener("scroll", onScroll);
 
-  // Dynamic year in footer
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-
-  // Navbar scroll effect
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   // Mobile menu toggle
-  const menuToggle = document.getElementById('mobile-menu');
-  const navLinks = document.getElementById('nav-menu');
-  const navLinkItems = document.querySelectorAll('.nav-link');
+  const menuToggle = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-menu");
+  const navLinkItems = document.querySelectorAll(".nav-link");
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    const icon = menuToggle.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-times");
   });
 
-  // Close mobile menu when a link is clicked
   navLinkItems.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+    link.addEventListener("click", () => {
+      if (navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
+        const icon = menuToggle.querySelector("i");
+        icon.classList.replace("fa-times", "fa-bars");
       }
     });
   });
 
-      // Simple IntersectionObserver to trigger animations on scroll
-    document.addEventListener("DOMContentLoaded", () => {
-      const options = { threshold: 0.2 };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("hidden");
-            if (entry.target.dataset.anim === "fadeSlideUp") {
-              entry.target.classList.add("animate-fadeSlideUp");
-            } else if (entry.target.dataset.anim === "bounceIn") {
-              entry.target.classList.add("animate-bounceIn");
-            } else if (entry.target.dataset.anim === "rotateFadeIn") {
-              entry.target.classList.add("animate-rotateFadeIn");
-            }
-            observer.unobserve(entry.target); // Animate once only
-          }
-        });
-      }, options);
+  // Set dynamic current year in footer
+  const yearElem = document.getElementById("current-year");
+  if (yearElem) yearElem.textContent = new Date().getFullYear();
+});
 
-      document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
-    });
 </script>
 </body>
 </html>
