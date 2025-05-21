@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Harshitha's Business Analyst Portfolio</title>
+
+  <!-- AOS Animate on Scroll -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <style>
 
@@ -391,6 +400,195 @@ header {
 .accordion-item.active .accordion-icon {
   transform: rotate(45deg);
 }
+
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
+  color: white;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.hero-content {
+  animation: fadeSlideUp 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInText 2s ease forwards;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #f1f1f1;
+  animation: fadeInText 2.5s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.1rem;
+  }
+}
+
+
+
+.edu-flip-section {
+  padding: 4rem 2rem;
+  background: #f7f9fc;
+  text-align: center;
+}
+
+.edu-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.edu-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.edu-timeline-entry {
+  perspective: 1000px;
+}
+
+.flip-card {
+  width: 300px;
+  height: 220px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.flip-card-front {
+  background: #2193b0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-card-back {
+  background: #ffffff;
+  color: #333;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edu-role {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.edu-date {
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Certification Section */
+.cert-section {
+  background: #fff;
+  padding: 3rem 2rem;
+}
+
+.cert-heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cert-list li {
+  background: #f1f7fb;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-left: 5px solid #2193b0;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cert-icon i {
+  color: #2193b0;
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
   
 </style>
   <body>
@@ -467,25 +665,22 @@ header {
 
 
 <section id="education" class="edu-flip-section">
-  <h2 class="edu-title" data-aos="fade-up">Education/h2>
+  <h2 class="edu-title" data-aos="fade-up">Education</h2>
 
   <div class="edu-timeline">
-
     <!-- Card 1 -->
     <div class="edu-timeline-entry" data-aos="flip-left" data-aos-duration="1000">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <!-- Front -->
           <div class="flip-card-front">
             <h3>University of North Texas</h3>
             <p class="edu-role">M.S. Business Analytics</p>
             <p class="edu-date">Expected Dec 2025</p>
           </div>
-          <!-- Back -->
           <div class="flip-card-back">
-            <p>GPA: <strong>3.5</strong></p>
-            <p>Focused on Data Visualization, Mining, and Predictive Modeling.</p>
-            <p>Capstone Project: Improved sales forecasting by <strong>15%</strong> using ML models.</p>
+            <p><strong>GPA:</strong> 3.5</p>
+            <p>Specialization in Data Mining, Visualization, Predictive Modeling.</p>
+            <p>Capstone: Improved sales forecasts by 15% using ML models.</p>
           </div>
         </div>
       </div>
@@ -495,24 +690,38 @@ header {
     <div class="edu-timeline-entry" data-aos="flip-right" data-aos-duration="1000">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <!-- Front -->
           <div class="flip-card-front">
             <h3>St. Pious X Degree College</h3>
             <p class="edu-role">B.Com in Computer Applications</p>
             <p class="edu-date">Graduated May 2023</p>
           </div>
-          <!-- Back -->
           <div class="flip-card-back">
-            <p>GPA: <strong>4.0</strong></p>
-            <p>Excelled in Financial Planning, IFRS, and Economics.</p>
-            <p>Initiated tech-integrated accounting software adoption on campus.</p>
+            <p><strong>GPA:</strong> 4.0</p>
+            <p>Excelled in IFRS, Financial Planning, and Economics.</p>
+            <p>Led adoption of tech-integrated accounting systems.</p>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
+
+<section class="cert-section" data-aos="fade-up" data-aos-duration="1000">
+  <h4 class="cert-heading">Certifications & Workshops</h4>
+  <ul class="cert-list">
+    <li>
+      <span class="cert-icon"><i class="fas fa-certificate"></i></span>
+      <strong>Entrepreneurship Orientation Program (NSIC):</strong>
+      Practical startup building, funding strategies & business models.
+    </li>
+    <li>
+      <span class="cert-icon"><i class="fas fa-lightbulb"></i></span>
+      <strong>Ad Mad Competition:</strong>
+      Creative ad campaigns and marketing challenges under time pressure.
+    </li>
+  </ul>
+</section>
+
 
 
 <section 
@@ -537,7 +746,7 @@ header {
 
 <section id="skills" class="skills-section">
   <div class="skills-container">
-    <h2 class="skills-title">⚙️ Technical & Analytical Skills</h2>
+    <h2 class="skills-title"> Technical & Analytical Skills</h2>
     <ul class="skills-list">
       <li>
         <span class="skill-name">Python</span>
