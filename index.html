@@ -593,22 +593,67 @@ footer a:hover {
   font-size: 1.2rem;
 }
 
+/*Character Agent*/
+
+  .character {
+    position: fixed;
+    bottom: 10px;
+    left: 50px;
+    width: 100px;
+    height: auto;
+    z-index: 5;
+    transition: left 1s ease-in-out;
+  }
+
+  .bubble {
+    position: fixed;
+    bottom: 130px;
+    left: 70px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-size: 14px;
+    width: 150px;
+    z-index: 6;
+  }
+
+  nav button {
+    background-color: #f9d5ec;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  nav button:hover {
+    background-color: #ffb3dd;
+  }
 </style>
   <body>
-   
+
+<!-- Character Agent -->
+<img src="https://i.imgur.com/qkdpN.jpg" class="character" id="agent" alt="Cute Girl Character"/>
+<div class="bubble" id="bubble">Hi, I'm Harshitha! Let's explore!</div>
+
+    
 <header>
   <nav class="navbar">
     <ul class="nav-links" id="nav">
-      <li><a href="#about"><i class="fas fa-user"></i>About</a></li>
-      <li><a href="#career"><i class="fas fa-briefcase"></i>Career</a></li>
-      <li><a href="#education"><i class="fas fa-graduation-cap"></i>Education</a></li>
-      <li><a href="#skills"><i class="fas fa-code"></i>Skills</a></li>
-      <li><a href="#experience"><i class="fas fa-laptop-code"></i>Experience</a></li>
-      <li><a href="#projects"><i class="fas fa-project-diagram"></i>Projects</a></li>
-      <li><a href="#leadership"><i class="fas fa-users-cog"></i>Leadership</a></li>
+      <li><a href="#about" onclick="moveCharacter('about')"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="#career" onclick="moveCharacter('career')"><i class="fas fa-briefcase"></i> Career</a></li>
+      <li><a href="#education" onclick="moveCharacter('education')"><i class="fas fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#skills" onclick="moveCharacter('skills')"><i class="fas fa-code"></i> Skills</a></li>
+      <li><a href="#experience" onclick="moveCharacter('experience')"><i class="fas fa-laptop-code"></i> Experience</a></li>
+      <li><a href="#projects" onclick="moveCharacter('projects')"><i class="fas fa-project-diagram"></i> Projects</a></li>
+      <li><a href="#leadership" onclick="moveCharacter('leadership')"><i class="fas fa-users-cog"></i> Leadership</a></li>
+      <li><a href="#contact" onclick="moveCharacter('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </nav>
 </header>
+
 
     
   <section class="hero" id="home">
@@ -1274,6 +1319,29 @@ if (window.AOS) {
     easing: 'ease-in-out'
   });
 }
+
+
+
+const agent = document.getElementById('agent');
+  const bubble = document.getElementById('bubble');
+
+  function moveCharacter(sectionId) {
+    const section = document.getElementById(sectionId);
+    const rect = section.getBoundingClientRect();
+    const centerX = window.innerWidth / 2;
+    const agentX = rect.left + centerX;
+
+    // Move agent
+    agent.style.left = `${Math.max(10, Math.min(window.innerWidth - 100, agentX - 50))}px`;
+
+    // Speak
+    bubble.innerText = `Going to ${sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}!`;
+
+    // Navigate
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  
 
 </script>
 </body>
