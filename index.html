@@ -6,306 +6,313 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Harshitha's Business Analyst Portfolio</title>
-
-  <!-- AOS Animate on Scroll -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
-
-  <!-- GSAP & ScrollTrigger -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-
-
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 
 </head>
 <style>
-
-/* Reset basic elements */
+  /* Reset & base */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
-  background: #f4f9ff;
-  color: #333;
-  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fafbff;
+  color: #222;
 }
 
-/* Header Navigation */
-header {
-  background: linear-gradient(90deg, #2980b9, #6dd5fa);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+/* Navbar */
+.navbar {
+  background: #1a237e;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Navigation Bar */
-
- * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    header {
-      background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      color: #fff;
-      font-size: 1.6rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      position: relative;
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links li a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0%;
-      background-color: #00d2ff;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links li a:hover::after {
-      width: 100%;
-    }
-
-    /* Icon animation on hover */
-    .nav-links li a i {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .nav-links li a:hover i {
-      transform: scale(1.3) rotate(10deg);
-      color: #00d2ff;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 4px 0;
-      transition: 0.4s;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-        background: #2c5364;
-        margin-top: 1rem;
-        padding: 1rem 0;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-.about-section-unique {
-  background-color: #f8f9fb;
-  padding: 40px 20px;
-  font-family: 'Times New Roman', Times, serif;
-  color: #2c3e50;
-}
-
-.about-container {
+.nav-links {
+  list-style: none;
   display: flex;
-  gap: 20px;
-  max-width: 850px;
-  margin: 0 auto;
-  background: #ffffff;
-  border-left: 6px solid #2980b9;
-  padding: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5rem;
 }
 
-.profile-icon {
-  min-width: 60px;
-  min-height: 60px;
-  background: linear-gradient(135deg, #3498db, #9b59b6);
+.nav-links li a {
+  color: #dde4ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #ffca28; /* highlight color */
+}
+
+/* Icons style */
+.nav-links li a i {
+  font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, #4e73dfcc, #1a237ecc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Responsive Nav for smaller screens */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content h2 {
+    font-size: 1.3rem;
+  }
+}
+
+footer a:hover {
+  color: #00c9ff;
+  transition: color 0.3s ease;
+}
+/* Leadership Section Styles */
+#leadership {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#leadership h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+/* Card Grid Layout */
+#leadership .card {
+  flex: 1 1 250px;
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* Icon Styling */
+#leadership .card > div:first-child {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Card Hover Effects */
+#leadership .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Card Layout */
+#leadership .card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.8rem;
+}
+
+#leadership .card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  #leadership .card {
+    flex: 1 1 100%;
+  }
+}
+
+.accordion-section {
+  padding: 2rem;
+}
+
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.accordion-header {
+  background-color: #e8eaf6;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: inherit;
+  color: #1a237e;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #d1d9ff;
+}
+
+.accordion-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.open .accordion-icon {
+  transform: rotate(45deg); /* Turns + into x */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.2rem;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background: #fff;
+  color: #444;
+}
+
+.accordion-content p {
+  padding: 1rem 0;
+  line-height: 1.6;
+}
+
+  /* Timeline container */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  border-left: 4px solid #4e73df;
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 3.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Icon style */
+.timeline-icon {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  background: #4e73df;
+  color: white;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  color: white;
+  font-size: 1.8rem;
+  box-shadow: 0 0 10px rgba(78, 115, 223, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.about-content {
-  flex: 1;
+/* Timeline content box */
+.timeline-item .content {
+  background: white;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.section-heading-unique {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #2980b9;
+/* On hover effect */
+.timeline-item:hover .timeline-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(78, 115, 223, 0.8);
+}
+.timeline-item:hover .content {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* Tag styles */
+.timeline-item .content span {
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.9rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.85rem;
   display: inline-block;
-  padding-bottom: 4px;
 }
 
-.about-content p {
-  font-size: 1.15em;
-  line-height: 1.8;
-  margin-bottom: 16px;
-}
-
-
-  .career-summary-section {
-  font-family: 'Times New Roman', Times, serif;
-  background: #f4f8fb;
-  padding: 50px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.career-card {
-  display: flex;
-  max-width: 900px;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease;
-}
-
-.career-card:hover {
-  transform: translateY(-6px);
-}
-
-.career-icon-panel {
-  background: linear-gradient(135deg, #2980b9, #6dd5fa);
-  color: #fff;
-  padding: 40px 30px;
-  width: 35%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.career-icon {
-  font-size: 60px;
-  margin-bottom: 20px;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.career-tagline {
-  font-size: 1.2em;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.career-content-panel {
-  padding: 40px;
-  width: 65%;
-  color: #2c3e50;
-}
-
-.career-title {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #2980b9;
-  padding-bottom: 8px;
-}
-
-.career-content-panel p {
-  font-size: 1.15em;
-  line-height: 1.7;
-}
-
-
+  /* Skills Section */
 .skills-section {
-  padding: 3rem 1.5rem;
-  background: #fdfdfd;
-  font-family: 'Segoe UI', Tahoma, sans-serif;
+  padding: 3rem 1rem;
+  background: #fafbff;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+.skills-container {
+  max-width: 800px;
+  margin: auto;
 }
 
 .skills-title {
   text-align: center;
-  font-size: 1.8rem;
-  color: #2a2a72;
-  margin-bottom: 2rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  color: #1a237e;
   letter-spacing: 1px;
 }
 
 .skills-list {
   list-style: none;
   padding: 0;
-  max-width: 700px;
-  margin: auto;
+  margin: 0;
 }
 
 .skills-list li {
@@ -313,385 +320,170 @@ header {
 }
 
 .skill-name {
-  display: block;
   font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 6px;
-  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  font-size: 1rem;
 }
 
+/* Progress Bar Container */
 .progress-bar {
-  background: #ecf0f1;
-  height: 24px;
+  background-color: #e0e0e0;
   border-radius: 12px;
   overflow: hidden;
-  position: relative;
+  height: 24px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
+/* Animated Fill */
 .progress-fill {
-  background: linear-gradient(90deg, #2980b9, #6dd5fa);
   height: 100%;
+  background: linear-gradient(to right, #4e73df, #1a237e);
+  color: white;
+  font-weight: bold;
   text-align: right;
-  padding-right: 10px;
+  padding-right: 0.6rem;
   line-height: 24px;
-  font-weight: 600;
-  color: #fff;
   border-radius: 12px 0 0 12px;
-  transition: width 1s ease-in-out;
-}
- /*ACCORDION*/
-  
-.accordion-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  width: 0; /* Initial width for animation */
+  transition: width 1.6s ease-in-out;
 }
 
-.accordion-header {
-  background: #283593;
-  color: white;
-  cursor: pointer;
-  padding: 1rem 1.5rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: none;
-  width: 100%;
-  text-align: left;
-  transition: background 0.3s ease;
-  position: relative;
-  gap: 1rem;
-}
-
-.accordion-header span:first-child {
-  font-size: 1.6rem;
-}
-
-.accordion-header time {
-  font-weight: 400;
-  font-size: 0.9rem;
-  opacity: 0.7;
-  margin-left: auto;
-}
-
-.accordion-header:hover {
-  background: #1a237e;
-}
-
-.accordion-icon {
-  font-size: 1.6rem;
-  transition: transform 0.3s ease;
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  background: #f9f9f9;
-  padding: 0 1.5rem;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  font-weight: 500;
-  color: #222;
-}
-
-.accordion-content p {
-  margin: 1rem 0;
-}
-
-.accordion-item.active .accordion-content {
-  max-height: 150px; /* adjust if content is longer */
-  padding: 1rem 1.5rem;
-}
-
-.accordion-item.active .accordion-icon {
-  transform: rotate(45deg);
-}
-
-
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #6dd5ed, #2193b0);
-  color: white;
-  text-align: center;
-  padding: 0 1rem;
-  overflow: hidden;
-}
-
-.hero-content {
-  animation: fadeSlideUp 1.5s ease-out forwards;
+  /* Career Summary Animation */
+.career-summary-section {
   opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  animation: fadeInText 2s ease forwards;
+.career-summary-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.hero h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #f1f1f1;
-  animation: fadeInText 2.5s ease forwards;
-}
-
-/* Animations */
-@keyframes fadeSlideUp {
-  0% {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInText {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero h2 {
-    font-size: 1.1rem;
-  }
-}
-
-
-
-.edu-flip-section {
-  padding: 4rem 2rem;
-  background: #f7f9fc;
-  text-align: center;
-}
-
-.edu-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #333;
-}
-
-.edu-timeline {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.edu-timeline-entry {
-  perspective: 1000px;
-}
-
-.flip-card {
-  width: 300px;
-  height: 220px;
-  background-color: transparent;
-  border-radius: 10px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
-
-.flip-card-front {
-  background: #2193b0;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.flip-card-back {
-  background: #ffffff;
-  color: #333;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.edu-role {
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.edu-date {
-  font-size: 0.9rem;
-  color: #ddd;
-}
-
-/* Certification Section */
-.cert-section {
-  background: #fff;
-  padding: 3rem 2rem;
-}
-
-.cert-heading {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #222;
-  text-align: center;
-}
-
-.cert-list {
-  list-style: none;
-  padding: 0;
-  max-width: 700px;
+/* Optional styling for the card */
+.career-card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.cert-list li {
-  background: #f1f7fb;
+.career-title {
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  padding: 1rem 1.5rem;
-  border-left: 5px solid #2193b0;
-  font-size: 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  color: #1a237e;
 }
 
-.cert-icon i {
-  color: #2193b0;
-  font-size: 1.2rem;
-  margin-top: 4px;
+.career-content-panel p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
 }
 
-  #vanta-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
+  /* Container */
+.edu-timeline-section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  position: relative;
+}
+
+/* Title */
+.edu-title {
+  font-weight: 800;
+  font-size: 2.6rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1a237e;
+}
+
+/* Timeline vertical line */
+.edu-timeline {
+  position: relative;
+  padding-left: 40px;
+  border-left: 3px solid #4e73df;
+}
+
+/* Each edu item container */
+.edu-item {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 45%;
+  background: #f7f9ff;
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgb(78 115 223 / 0.12);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Circle on timeline */
+.edu-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 1.5rem;
+  width: 20px;
+  height: 20px;
+  background: #4e73df;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4e73dfaa;
+}
+
+/* Left and right positioning */
+.animate-left {
+  transform: translateX(-50px);
   left: 0;
 }
 
-  .edu-animated-section {
-  background: #f5f7fa;
-  padding: 4rem 2rem;
-  text-align: center;
+.animate-right {
+  transform: translateX(50px);
+  margin-left: auto;
+  right: 0;
 }
 
-.edu-title {
-  font-size: 2.6rem;
-  margin-bottom: 2rem;
-  color: #222;
+/* When visible (JS will add this class) */
+.edu-item.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+/* Responsive: stack items on small screens */
+@media (max-width: 768px) {
+  .edu-item,
+  .animate-left,
+  .animate-right {
+    width: 100%;
+    margin-left: 0;
+    right: auto;
+    transform: translateX(0);
+  }
+  .edu-item::before {
+    left: -40px;
+    top: 1.2rem;
+  }
 }
 
-.edu-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.edu-info h3 {
-  margin: 0 0 0.5rem;
-  color: #2193b0;
-}
-
-.edu-role, .edu-date {
-  color: #555;
-  font-size: 0.95rem;
-}
-
-.edu-detail {
-  margin-top: 1rem;
-  color: #333;
-}
-
-/* Certifications */
-.cert-section {
-  padding: 3rem 2rem;
-  background: #ffffff;
-  text-align: center;
-}
-
-.cert-heading {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.cert-list {
-  list-style: none;
-  padding: 0;
-  max-width: 700px;
-  margin: auto;
-}
-
-.cert-item {
-  font-size: 1rem;
+.skills-subtitle {
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
-  background: #e3f2fd;
-  padding: 1rem;
-  border-radius: 8px;
-  opacity: 0;
-  transform: translateX(-40px);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #1a237e;
+  border-bottom: 2px solid #4e73df;
+  padding-bottom: 0.3rem;
 }
-
-.cert-item i {
-  color: #2193b0;
-}
-
-  
+ 
 </style>
   <body>
-    
-
-<div id="vanta-bg"></div>
-    
+   
 <header>
   <nav class="navbar">
     <ul class="nav-links" id="nav">
@@ -718,20 +510,11 @@ header {
 
   <section id="about" data-aos="fade-up" class="about-section-unique">
   <div class="about-container">
-    <div class="profile-icon">
-      <span>👤</span>
-    </div>
     <div class="about-content">
       <h2 class="section-heading-unique">About Me</h2>
       <p>
         I’m a Business Analytics graduate student at the University of North Texas with a strong academic background — including dual Bachelor’s degrees in Commerce and Computer Applications and a 4.0 undergraduate GPA. My expertise spans statistical analysis, data modeling, and business intelligence.
       </p>
-      <p>
-        I am proficient in Python, R, and SQL, and I use tools like Tableau, Power BI, SAP, and Oracle NetSuite to transform raw data into actionable insights. My goal is to bridge the gap between data and decision-making through clear, impactful visualizations and strategies.
-      </p>
-      <p>
-        Beyond academics, I’m a national-level swimmer and active community leader — experiences that enhance my teamwork, resilience, and leadership abilities in both professional and personal contexts.
-      </p>
     </div>
   </div>
 </section>
@@ -739,60 +522,54 @@ header {
 
 
 
-<section id="career" data-aos="zoom-in" class="career-summary-section">
+<section id="career" class="career-summary-section animate-on-scroll">
   <div class="career-card">
-    <div class="career-icon-panel">
-      <div class="career-icon"></div>
-      <div class="career-tagline">Mission: Insight to Impact</div>
-    </div>
     <div class="career-content-panel">
       <h2 class="career-title">Career Summary</h2>
       <p>
-        I’m a data-driven storyteller and strategic thinker currently pursuing my Master’s in Business Analytics at the University of North Texas.
-        Passionate about transforming complex datasets into crystal-clear insights, I leverage predictive analytics and advanced modeling to unlock hidden opportunities and fuel smart business decisions.
-        <br><br>
-        <strong>My goal?</strong> To bridge the gap between data and strategy, empowering organizations to innovate, grow, and outpace the competition in today’s fast-evolving markets.
+        Detail-oriented and analytical master’s student specializing in Business Analytics, with a Bachelor of Commerce in Computer Applications. I am skilled in data analysis, problem-solving, and leveraging technology for business insights. Adept at applying statistical and analytical tools to drive decision-making and optimize business performance.
       </p>
     </div>
   </div>
 </section>
+
 
 
 
  
-
-
-<section id="education" class="edu-animated-section">
+<section id="education" class="edu-timeline-section">
   <h2 class="edu-title">Education</h2>
 
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-info">
+  <div class="edu-timeline">
+
+    <div class="edu-item animate-left">
+      <div class="edu-content">
         <h3>University of North Texas</h3>
         <p class="edu-role">M.S. Business Analytics</p>
         <p class="edu-date">Expected Dec 2025</p>
         <div class="edu-detail">
-          <p><strong>GPA:</strong> 3.5</p>
-          <p>Specialization in Data Mining, Visualization, Predictive Modeling.</p>
+          <p><strong>GPA:</strong> 3.5 / 4.0</p>
+          <p><strong>Coursework:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
           <p>Capstone: Improved sales forecasts by 15% using ML models.</p>
         </div>
       </div>
     </div>
 
-    <div class="edu-card">
-      <div class="edu-info">
-        <h3>St. Pious X Degree College</h3>
-        <p class="edu-role">B.Com in Computer Applications</p>
-        <p class="edu-date">Graduated May 2023</p>
+    <div class="edu-item animate-right">
+      <div class="edu-content">
+        <h3>Osmania University</h3>
+        <p class="edu-role">Bachelor of Commerce (Computer Applications)</p>
+        <p class="edu-date">June 2020 - April 2023</p>
         <div class="edu-detail">
-          <p><strong>GPA:</strong> 4.0</p>
-          <p>Excelled in IFRS, Financial Planning, and Economics.</p>
-          <p>Led tech-integrated accounting adoption on campus.</p>
+          <p><strong>GPA:</strong> 4.0 / 4.0</p>
+          <p><strong>Coursework:</strong> Database Management Systems, Business Statistics, Management Information Systems, Financial Accounting</p>
         </div>
       </div>
     </div>
+
   </div>
 </section>
+
 
 <section class="cert-section">
   <h4 class="cert-heading">Certifications & Workshops</h4>
@@ -806,46 +583,89 @@ header {
 
 
 
-
 <section id="skills" class="skills-section">
   <div class="skills-container">
-    <h2 class="skills-title"> Technical & Analytical Skills</h2>
+    <h2 class="skills-title">Technical & Analytical Skills</h2>
+
+    <!-- Programming -->
+    <h3 class="skills-subtitle">Programming</h3>
     <ul class="skills-list">
       <li>
         <span class="skill-name">Python</span>
         <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
       </li>
       <li>
-        <span class="skill-name">R</span>
+        <span class="skill-name">NumPy</span>
         <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
       </li>
       <li>
-        <span class="skill-name">SQL</span>
+        <span class="skill-name">Pandas</span>
         <div class="progress-bar"><div class="progress-fill" style="width: 88%;">88%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">R</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
+      </li>
+    </ul>
+
+    <!-- Tools & Technologies -->
+    <h3 class="skills-subtitle">Tools & Technologies</h3>
+    <ul class="skills-list">
+      <li>
+        <span class="skill-name">Power BI</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 82%;">82%</div></div>
       </li>
       <li>
         <span class="skill-name">Tableau</span>
         <div class="progress-bar"><div class="progress-fill" style="width: 87%;">87%</div></div>
       </li>
       <li>
-        <span class="skill-name">Power BI</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 82%;">82%</div></div>
+        <span class="skill-name">MySQL</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 88%;">88%</div></div>
       </li>
       <li>
         <span class="skill-name">Excel</span>
         <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
       </li>
       <li>
-        <span class="skill-name">TensorFlow</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 75%;">75%</div></div>
+        <span class="skill-name">Big Data</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
       </li>
       <li>
-        <span class="skill-name">SAP (FI)</span>
-        <div class="progress-bar"><div class="progress-fill" style="width: 70%;">70%</div></div>
+        <span class="skill-name">MS Excel</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 90%;">90%</div></div>
       </li>
     </ul>
+
+    <!-- Database -->
+    <h3 class="skills-subtitle">Database</h3>
+    <ul class="skills-list">
+      <li>
+        <span class="skill-name">MySQL</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 88%;">88%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">NoSQL</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 85%;">85%</div></div>
+      </li>
+      <li>
+        <span class="skill-name">MongoDB</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
+      </li>
+    </ul>
+
+    <!-- Cloud Platforms -->
+    <h3 class="skills-subtitle">Cloud Platforms</h3>
+    <ul class="skills-list">
+      <li>
+        <span class="skill-name">Google Cloud Platform (GCP)</span>
+        <div class="progress-bar"><div class="progress-fill" style="width: 80%;">80%</div></div>
+      </li>
+    </ul>
+
   </div>
 </section>
+
 
 <!-- ACCORDION-->
  <section id="experience" class="accordion-section" style="max-width: 800px; margin: 4rem auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
@@ -853,34 +673,23 @@ header {
 
   <div class="accordion-item">
     <button class="accordion-header">
-      <span>🥯</span> Student Assistant - Einstein Bros. Bagels, UNT, Denton, TX
-      <time>Nov 2024 – Present</time>
+      <span>💼</span> Entrepreneurship/Business Development Intern, NSIC – Hyderabad, IND
+      <time>May 2022 – Mar 2023</time>
       <span class="accordion-icon">+</span>
     </button>
     <div class="accordion-content">
-      <p>Managed POS operations and customer order dispatch, reinforcing multitasking and reliability.</p>
+      <p>I worked on understanding how market trends, financial feasibility, and industrial awareness impact small business growth. My role was to analyze market data, evaluate business growth patterns, and develop insights to help small businesses make informed decisions. I collected and analyzed data from small businesses, identified trends in sales, customer demand, and industry growth, and created a basic financial model to assess business viability.</p>
     </div>
   </div>
 
   <div class="accordion-item">
     <button class="accordion-header">
-      <span>💼</span> Entrepreneurship Intern - NSIC, Hyderabad, India
-      <time>Nov 2022 – Mar 2023</time>
+      <span>🎓</span> Counselor/Data Insights Mentor, Voice 4 Girls – Hyderabad, IND
+      <time>Aug 2021 – Mar 2022</time>
       <span class="accordion-icon">+</span>
     </button>
     <div class="accordion-content">
-      <p>Participated in industrial awareness and entrepreneurial workshops focused on foundational business skills.</p>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <button class="accordion-header">
-      <span>🎓</span> Counselor - Voice for Girls, Hyderabad, India
-      <time>Aug 2021 – Nov 2022</time>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-content">
-      <p>Provided mentorship and guidance to young students, fostering confidence and communication skills.</p>
+      <p>I worked to empower students by helping them develop key skills for personal and academic growth. My goal was to mentor students, analyze learning patterns, and provide insights on effective teaching strategies to improve engagement and knowledge retention. Conducted interactive counseling sessions, assessed student progress using qualitative insights, and adapted my mentoring techniques based on observed trends. Additionally, I used basic data analysis methods (surveys, feedback tracking) to understand learning gaps and improve counseling effectiveness. Improved students’ confidence, problem-solving, and decision-making skills, while also strengthening my ability to analyze behavioral trends, communicate insights effectively, and apply data-driven approaches to learning.</p>
     </div>
   </div>
 </section>
@@ -915,7 +724,7 @@ header {
       ">📊</span>
       <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(78 115 223 / 0.15); transition: box-shadow 0.3s ease;">
         <h3 style="margin-top: 0; color: #2a2a72; font-weight: 700; font-size: 1.4rem;">
-          Sales Forecasting Dashboard <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
+          Agentic AI Resume Screening System <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
         </h3>
         <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
           Developed an interactive dashboard leveraging <strong>Power BI</strong> and <strong>Excel</strong> to analyze retail sales trends and forecast demand for data-driven strategies.
@@ -947,7 +756,7 @@ header {
       ">🤖</span>
       <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(239 83 80 / 0.15); transition: box-shadow 0.3s ease;">
         <h3 style="margin-top: 0; color: #b71c1c; font-weight: 700; font-size: 1.4rem;">
-          Customer Segmentation Model <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Coursework)</small>
+          Malnutrition Analytics <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
         </h3>
         <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
           Implemented K-means clustering using <strong>Python</strong> to segment customers based on shopping behaviors, enhancing targeted marketing efforts.
@@ -979,7 +788,7 @@ header {
       ">📈</span>
       <div class="content" style="background: white; padding: 1.8rem 2rem; border-radius: 16px; box-shadow: 0 8px 22px rgb(41 182 246 / 0.15); transition: box-shadow 0.3s ease;">
         <h3 style="margin-top: 0; color: #01579b; font-weight: 700; font-size: 1.4rem;">
-          Financial Performance Analysis <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
+          AI-Based Fraud Detection System in Banking <small style="font-weight: 400; color: #666; font-size: 0.9rem;">(Academic)</small>
         </h3>
         <p style="color: #444; font-size: 1rem; line-height: 1.6; margin: 1rem 0;">
           Created KPI dashboards with <strong>Tableau</strong> to visualize financial data, allowing easy monitoring of corporate performance metrics.
@@ -1028,220 +837,177 @@ header {
   </div>
 </section>
     
-  <footer>
-    <p>Made with by Harshitha</p>
-  </footer>
+<!-- Footer -->
+<footer style="background-color: #0f2027; color: white; padding: 1.5rem 0; text-align: center;">
+  <!-- Social Icons -->
+  <div style="font-size: 1.6rem; margin-bottom: 0.5rem;">
+    <!-- LinkedIn -->
+    <a href="www.linkedin.com/in/ harshitha-sreiya-palaparthi-4434b4340" target="_blank" style="color: white; margin: 0 1rem;">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <!-- Gmail -->
+    <a href="harshithasrieya@gmail.com" style="color: white; margin: 0 1rem;">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <!-- Custom Text -->
+  <p style="margin: 0.5rem 0;">Made with <i class="fab fa-github"></i> by Harshitha</p>
+
+  <!-- Current Date and Time -->
+  <p id="datetime" style="font-size: 0.85rem; color: #ccc;"></p>
+</footer>
+
 
 <script>
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Single IntersectionObserver for all animated elements
-  const observerOptions = { threshold: 0.2 };
-  const animateOnScroll = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove("hidden");
-        const animType = entry.target.dataset.anim;
-        if (animType === "fadeSlideUp") {
-          entry.target.classList.add("animate-fadeSlideUp");
-        } else if (animType === "bounceIn") {
-          entry.target.classList.add("animate-bounceIn");
-        } else if (animType === "rotateFadeIn") {
-          entry.target.classList.add("animate-rotateFadeIn");
-        } else {
-          // Default fade-in for elements with 'fade-up' or 'fade-in' classes
-          entry.target.classList.add("visible");
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  };
-
-  const observer = new IntersectionObserver(animateOnScroll, observerOptions);
-
-  // Observe all animation-related elements
-  document.querySelectorAll(".hidden, .fade-up, .fade-in").forEach(el => observer.observe(el));
-
-  // Toggle project sections
-  window.toggleProject = function(id) {
-    const target = document.getElementById(id);
-    const allSections = document.querySelectorAll(".project-details");
-    allSections.forEach(section => (section.id !== id ? section.style.display = "none" : null));
-    target.style.display = target.style.display === "block" ? "none" : "block";
-  };
-
-  // Cache DOM elements for scroll toggles
-  const scrollTopBtn = document.getElementById("scroll-top");
-  const navbar = document.querySelector(".navbar");
-
-  // Debounce utility function
-  function debounce(fn, delay = 100) {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => fn(...args), delay);
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     };
+    document.getElementById("datetime").textContent = now.toLocaleString("en-US", options);
   }
 
-  // Combined scroll handler
-  const onScroll = debounce(() => {
-    const scrolled = window.scrollY > 300;
-    scrollTopBtn.classList.toggle("active", scrolled);
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
-  }, 100);
+  updateDateTime();
+  setInterval(updateDateTime, 1000); // Updates every second
 
-  window.addEventListener("scroll", onScroll);
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  // Mobile menu toggle
-  const menuToggle = document.getElementById("mobile-menu");
-  const navLinks = document.getElementById("nav-menu");
-  const navLinkItems = document.querySelectorAll(".nav-link");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    const icon = menuToggle.querySelector("i");
-    icon.classList.toggle("fa-bars");
-    icon.classList.toggle("fa-times");
-  });
-
-  navLinkItems.forEach(link => {
-    link.addEventListener("click", () => {
-      if (navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
-        const icon = menuToggle.querySelector("i");
-        icon.classList.replace("fa-times", "fa-bars");
-      }
-    });
-  });
-
-  // Set dynamic current year in footer
-  const yearElem = document.getElementById("current-year");
-  if (yearElem) yearElem.textContent = new Date().getFullYear();
-});
-  // Animate progress bars when the skills section is in viewport
-  function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.bottom >= 0
-    );
-  }
-
-  function animateProgressBars() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    skillItems.forEach(item => {
-      if (isInViewport(item) && !item.classList.contains('animated')) {
-        const progressFill = item.querySelector('.progress-fill');
-        const percent = item.getAttribute('data-percent');
-        progressFill.style.width = percent + '%';
-        item.classList.add('animated');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', animateProgressBars);
-  window.addEventListener('load', animateProgressBars);
-
-    // Wait for DOM to load
-  document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll('.timeline-item');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Animate once
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    items.forEach(item => observer.observe(item));
-  });
-
-   /*ACCORDION*/
- const accordions = document.querySelectorAll('.accordion-item');
-
-  accordions.forEach(item => {
-    const header = item.querySelector('.accordion-header');
+  accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+
+      // Close all open accordions
+      document.querySelectorAll('.accordion-content').forEach(c => {
+        if (c !== content) {
+          c.style.maxHeight = null;
+          c.style.paddingTop = 0;
+          c.style.paddingBottom = 0;
+        }
+      });
+      document.querySelectorAll('.accordion-header').forEach(h => {
+        if (h !== header) h.classList.remove('open');
+      });
+
       // Toggle current accordion
-      item.classList.toggle('active');
+      header.classList.toggle('open');
 
-      // Optional: close other accordions if you want only one open at a time
-      // accordions.forEach(i => {
-      //   if(i !== item) i.classList.remove('active');
-      // });
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.style.paddingTop = 0;
+        content.style.paddingBottom = 0;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.paddingTop = "1rem";
+        content.style.paddingBottom = "1rem";
+      }
     });
   });
-  const menuToggle = document.getElementById('mobile-menu');
-  const nav = document.getElementById('nav');
+ const items = document.querySelectorAll(".timeline-item");
 
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('show');
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+  items.forEach(item => {
+    item.style.opacity = 0;
+    item.style.transform = "translateY(30px)";
+    item.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    observer.observe(item);
+  });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const fillBars = document.querySelectorAll(".progress-fill");
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target;
+          const actualWidth = fill.getAttribute("style").match(/width:\s*(\d+)%/)[1];
+          fill.style.width = actualWidth + "%";
+          obs.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    fillBars.forEach(bar => {
+      const targetWidth = bar.style.width;
+      bar.style.width = "0%";
+      observer.observe(bar);
+    });
+  });
+   document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".career-summary-section");
+
+    function handleScroll() {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        section.classList.add("visible");
+        window.removeEventListener("scroll", handleScroll); // Only animate once
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger on load in case already in view
   });
   
-  VANTA.NET({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.0,
-    color: 0x00c9ff,
-    backgroundColor: 0x0f2027
-  });
-   gsap.registerPlugin(ScrollTrigger);
+  document.addEventListener("DOMContentLoaded", function () {
+    const eduItems = document.querySelectorAll(".edu-item");
 
-  // Animate education cards
-  gsap.utils.toArray(".edu-card").forEach((card, index) => {
-    gsap.to(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        toggleActions: "play none none none"
-      },
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: index * 0.2
-    });
-  });
+    function checkPosition() {
+      eduItems.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          item.classList.add("visible");
+        }
+      });
+    }
 
-  // Animate certification items
-  gsap.utils.toArray(".cert-item").forEach((item, index) => {
-    gsap.to(item, {
-      scrollTrigger: {
-        trigger: item,
-        start: "top 90%",
-        toggleActions: "play none none none"
-      },
-      opacity: 1,
-      x: 0,
-      duration: 0.8,
-      delay: index * 0.1
-    });
+    window.addEventListener("scroll", checkPosition);
+    checkPosition(); // Trigger on page load if visible
   });
-  
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.0,
-      color: 0x00c9ff,
-      backgroundColor: 0x0f2027,
-      points: 12.0,
-      maxDistance: 20.0,
-      spacing: 15.0
-    });
+  // Highlight nav links on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionHeight = section.offsetHeight;
+    const sectionTop = section.offsetTop - 70; // offset for navbar height
+    const sectionId = section.getAttribute('id');
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
 
 </script>
 </body>
