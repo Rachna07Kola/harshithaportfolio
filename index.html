@@ -1,1386 +1,718 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <style>
 
-  <title>Harshitha's Business Analyst Portfolio (AI)</title>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-  <!-- AOS CDN (include in <head> or before closing </body>) -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-</head>
-<style>
-  
-  /* Reset & base */
-* {
-  box-sizing: border-box;
+/* =========================
+   GLOBAL STYLES
+========================= */
+body, html {
   margin: 0;
   padding: 0;
-}
-
-body {
+  height: 100%;
   font-family: 'Times New Roman', Times, serif;
-  background: #fafbff;
-  color: #222;
-}
-
-/* Career */
-.career-summary-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f0f4ff, #e6f0fa);
-  border-radius: 2rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.career-card {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  border-radius: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.career-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.career-title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #1a237e;
-}
-
-.career-content-panel p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
-}
-
-
-
-
-/* Hero Section */
-.hero {
-  height: 80vh;
-  background: linear-gradient(135deg, #4e73dfcc, #1a237ecc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  padding: 0 1rem;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 0.5rem;
-}
-
-.hero-content h2 {
-  font-size: 1.7rem;
-  font-weight: 500;
-  opacity: 0.9;
-}
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content h2 {
-    font-size: 1.3rem;
-  }
-}
-/* Footer */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 201, 255, 0.7);
-  }
-  70% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 10px rgba(0, 201, 255, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(0, 201, 255, 0);
-  }
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1rem;
-}
-
-.footer-icons .social-link {
-  color: white;
-  font-size: 2rem;
-  position: relative;
-  transition: color 0.3s ease;
-  animation: pulse 2.5s infinite;
-}
-
-.footer-icons .social-link:hover {
-  color: #00c9ff;
-  transform: scale(1.2);
-}
-
-/* Leadership Section Styles */
-#leadership {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-#leadership h2 {
-  text-align: center;
-  font-weight: 700;
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: #1a237e;
-}
-
-/* Card Grid Layout */
-#leadership .card {
-  flex: 1 1 250px;
-  border-radius: 12px;
-  padding: 1.8rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  background: #fff;
-  cursor: pointer;
-}
-
-/* Icon Styling */
-#leadership .card > div:first-child {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Card Hover Effects */
-#leadership .card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive Card Layout */
-#leadership .card h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 0.8rem;
-}
-
-#leadership .card p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
-}
-
-@media (max-width: 768px) {
-  #leadership .card {
-    flex: 1 1 100%;
-  }
-}
-/* Accordion */
-
-.accordion-section {
-  padding: 2rem;
-}
-
-.accordion-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 1.2rem;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  background: #fafafa;
-}
-
-.accordion-header {
-  background-color: #e8eaf6;
-  border: none;
-  width: 100%;
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 1.2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-family: inherit;
-  color: #1a237e;
-  transition: background 0.3s ease;
-}
-
-.accordion-header:hover {
-  background-color: #d1d9ff;
-}
-
-.accordion-icon {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  transition: transform 0.3s ease;
-}
-
-.accordion-header.open .accordion-icon {
-  transform: rotate(45deg); /* Turns + into x */
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 1.2rem;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  background: #fff;
-  color: #444;
-}
-
-.accordion-content p {
-  padding: 1rem 0;
-  line-height: 1.6;
-}
-
-  /* Timeline container */
-.timeline {
-  position: relative;
-  padding-left: 40px;
-  border-left: 4px solid #4e73df;
-}
-
-/* Each timeline item */
-.timeline-item {
-  position: relative;
-  margin-bottom: 3.5rem;
-  transition: transform 0.3s ease;
-}
-
-/* Icon style */
-.timeline-icon {
-  position: absolute;
-  left: -30px;
-  top: 0;
-  background: #4e73df;
-  color: white;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  box-shadow: 0 0 10px rgba(78, 115, 223, 0.6);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* Timeline content box */
-.timeline-item .content {
-  background: white;
-  padding: 1.8rem 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-/* On hover effect */
-.timeline-item:hover .timeline-icon {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(78, 115, 223, 0.8);
-}
-.timeline-item:hover .content {
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  transform: translateY(-3px);
-}
-
-/* Tag styles */
-.timeline-item .content span {
-  background-color: #f0f0f0;
-  padding: 0.3rem 0.9rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  display: inline-block;
-}
-
-  /* Skills Section */
-
-
-/* Container & Title */
-  .skills-section {
-    padding: 3rem 1rem;
-    background: #f0f4ff;
-  font-family: 'Times New Roman', Times, serif;
-    max-width: 700px;
-    margin: 2rem auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 22px rgba(78, 115, 223, 0.15);
-  }
-  .skills-title {
-    text-align: center;
-    font-weight: 800;
-    color: #1a237e;
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-    letter-spacing: 1.2px;
-  }
-
-  /* List styling */
-  .skills-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .skills-list li {
-    margin-bottom: 1.3rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  .skills-list li:hover {
-    transform: translateX(5px);
-  }
-
-  /* Skill name */
-  .skill-name {
-    display: inline-block;
-    font-weight: 700;
-    color: #2a2a72;
-    margin-bottom: 0.3rem;
-    user-select: none;
-  }
-
-  /* Progress bar background */
-  .progress-bar {
-    width: 100%;
-    background: #dbe4ff;
-    height: 18px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-  }
-
-  /* Animated fill */
-  .progress-fill {
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, #4e73df, #1a237e);
-    border-radius: 12px 0 0 12px;
-    text-align: right;
-    color: white;
-    font-weight: 600;
-    padding-right: 0.6rem;
-    font-size: 0.9rem;
-    line-height: 18px;
-    white-space: nowrap;
-    transition: width 1.5s ease-in-out;
-  }
-
-/* Career Summary Animation */
-
-/* Animate the card */
-.career-summary-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(to right, #f8f9ff, #e8ebf9);
-}
-
-.career-card {
-  background-color: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  padding: 2.5rem;
-  max-width: 800px;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-.career-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.career-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #1a237e;
-}
-
-.career-content-panel p {
-  font-size: 1.1rem;
-  line-height: 1.75;
-  color: #444;
-  text-align: justify;
-  padding: 0 1rem;
-  font-family: 'Times New Roman', Times, serif;
-}
-/* About Animation */
-
-.about-section-unique {
-  background: #f8f9ff;
-  padding: 4rem 1.5rem;
-  font-family: 'Times New Roman', Times, serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-container {
-  max-width: 800px;
-  background: #ffffff;
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
-}
-
-.section-heading-unique {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #1a237e;
-  text-align: center;
-  margin-bottom: 1.8rem;
-}
-
-.about-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-  text-align: justify;
-}
-
-  
-.skills-subtitle {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #1a237e;
-  border-bottom: 2px solid #4e73df;
-  padding-bottom: 0.3rem;
-}
-
-
-  /* Education */
-
- /* Base styles */
-.edu-timeline-section {
-  padding: 4rem 1rem;
-  background: #f4f8fc;
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-}
-
-.edu-title {
-  font-size: 2.5rem;
-  color: #1a237e;
-  margin-bottom: 2rem;
-}
-
-.edu-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 900px;
-  margin: auto;
-}
-
-.edu-item {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInSlide 1.2s ease forwards;
+  overflow-x: hidden;
+  color: #eee;
+  background: #233;
   position: relative;
 }
 
-.edu-item.animate-left {
-  animation-name: fadeInLeft;
+/* =========================
+   BACKGROUND GIF & OVERLAY
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://cdn.dribbble.com/userupload/35540897/file/original-7b9335903fdfa34d29222e2b4faccd5b.gif') no-repeat center center / cover;
+  filter: brightness(0.35);
+  z-index: -2;
+  animation: bgFade 30s ease-in-out infinite alternate;
 }
 
-.edu-item.animate-right {
-  animation-name: fadeInRight;
+@keyframes bgFade {
+  0% { filter: brightness(0.35); }
+  100% { filter: brightness(0.45); }
 }
 
-/* Education content box */
-.edu-content {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  text-align: left;
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: -1;
 }
 
-.edu-role {
-  font-weight: bold;
-  color: #2e3b55;
-}
-
-.edu-date {
-  color: #777;
-  font-style: italic;
-  margin-bottom: 1rem;
-}
-
-.edu-detail p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #444;
-}
-
-/* Animation keyframes */
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Certifications Section */
-.cert-section {
-  background: #ffffff;
-  padding: 3rem 1rem;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.cert-heading {
-  font-size: 2rem;
-  color: #1a237e;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.cert-list {
-  list-style: none;
-  max-width: 800px;
-  margin: auto;
-  padding: 0;
-}
-
-.cert-item {
-  padding: 1rem;
-  background: #f0f4ff;
-  border-left: 4px solid #4e73df;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  color: #333;
+/* =========================
+   NAVIGATION BAR
+========================= */
+nav#navbar {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 6px;
-}
-
-.cert-item i {
-  color: #4e73df;
-  font-size: 1.2rem;
-}
-
-
-.nav-bar {
+  justify-content: center;
+  gap: 35px;
+  background-color: rgba(31, 31, 46, 0.85);
+  padding: 15px 30px;
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
   z-index: 1000;
-  backdrop-filter: blur(12px);
-  background: linear-gradient(270deg, #4f46e5, #9333ea, #06b6d4);
-  background-size: 600% 600%;
-  animation: gradientShift 10s ease infinite;
-  transition: padding 0.3s ease, background 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  animation: fadeSlideDown 1.5s ease forwards;
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-list li {
-  position: relative;
-}
-
-.nav-list a {
-  color: #fff;
+nav#navbar a {
+  color: #ccc;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
   padding: 8px;
+  transition: color 0.3s ease;
 }
 
-.nav-list a span {
-  margin-left: 6px;
+nav#navbar a:hover {
+  color: #0fd8d8;
 }
 
-.nav-list a::after {
-  content: "";
+nav#navbar a.active::after {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #fff;
-  transition: width 0.3s ease-in-out;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #0fd8d8;
+  border-radius: 50%;
+  animation: pulse 1s ease-in-out infinite;
 }
 
-.nav-list a:hover::after {
-  width: 100%;
-}
-
-.nav-list a:hover {
-  color: #e0f2fe;
-  text-shadow: 0 0 5px #ffffffcc;
-}
-
-/* Scroll shrink effect */
-window.onscroll = () => {
-  const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    nav.style.padding = '0.5rem 0';
-  } else {
-    nav.style.padding = '1rem 0';
+@keyframes pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.6);
+    opacity: 0.5;
   }
 }
 
+@keyframes fadeSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* =========================
+   CONTENT WRAPPER & SECTIONS
+========================= */
+.content {
+  padding-top: 100px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out forwards;
+  color: white;
+}
 
-</style>
-  <body>
+.page-section {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+}
 
+.page-section.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
 
+.animate-fade {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+}
+
+.page-section.active.animate-fade {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects-section {
+  position: relative;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  color: #333;
+  font-family: 'Times New Roman', serif;
+  overflow: hidden;
+}
+
+.projects-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://images.prismic.io/smarttask/ac06bafa-57b9-4cc3-8564-cbf21a251ea4_project+objectives.gif?auto=compress,format') center center/cover no-repeat;
+  filter: blur(12px) brightness(0.8);
+  z-index: -1;
+}
+
+.project-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.gif-container {
+  width: 100%;
+  margin-top: 1rem;
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.gif-container img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  height: auto;
+  display: inline-block;
+  image-rendering: auto;
+}
+
+.project-block {
+  position: relative;
+  flex: 2 1 600px;
+  padding: 24px 32px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 16px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.project-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.7);
+  opacity: 0.3;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.project-block:hover::before {
+  opacity: 0.45;
+}
+
+/* Individual project backgrounds */
+.project-hiring::before {
+  background-image: url('https://images.yourstory.com/cs/wordpress/2018/02/cv_scan_robo.gif');
+}
+
+.project-malnutrition::before,
+.project-fraud::before {
+  background-image: url('https://images.prismic.io/smarttask/ac06bafa-57b9-4cc3-8564-cbf21a251ea4_project+objectives.gif?auto=compress,format');
+}
+
+.project-block h3 {
+  color: #004aad;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.project-block p,
+.project-block ul {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.project-block ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.project-block ul li {
+  margin-bottom: 6px;
+}
+
+.projects-section h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: #222;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* =========================
+   ABOUT ME SECTION
+========================= */
+#about {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f0f8ff;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 60px auto;
+  animation: fadeInGlow 2s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(40px);
+  box-shadow: 0 0 15px rgba(173, 216, 230, 0.3);
+}
+
+@keyframes fadeInGlow {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    box-shadow: 0 0 0px rgba(173, 216, 230, 0);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba(173, 216, 230, 0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 25px rgba(173, 216, 230, 0.7);
+  }
+}
+
+#about h2 {
+  font-size: 36px;
+  color: #00f5d4;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6);
+  margin-bottom: 20px;
+}
+
+#about p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e0f7fa;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+/* =========================
+   SKILLS SECTION
+========================= */
+#skills {
+  background: #1b003b;
+  padding: 60px 20px;
+  color: #f5f5f5;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#skills h2 {
+  font-size: 36px;
+  color: #d4a5ff;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(212, 165, 255, 0.4);
+}
+
+.skills-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill span {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #f0e6ff;
+}
+
+.progress {
+  background-color: #330066;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 22px;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #9b30ff, #c154c1);
+  height: 100%;
+  line-height: 22px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 10px;
+  border-radius: 25px;
+  width: 0;
+  animation: fillProgress 2s ease forwards;
+}
+
+@keyframes fillProgress {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background-color: #0f2027;
+  color: white;
+  padding: 1.5rem 0;
+  text-align: center;
+  animation: fadeSlideUp 2s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
 <header>
-  <nav class="nav-bar" id="navbar">
-    <ul class="nav-list">
-      <li><a href="#about"><i class="fas fa-user"></i><span>About</span></a></li>
-      <li><a href="#career-summary"><i class="fas fa-briefcase"></i><span>Career</span></a></li>
-      <li><a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
-      <li><a href="#skills"><i class="fas fa-code"></i><span>Skills</span></a></li>
-      <li><a href="#experience"><i class="fas fa-laptop-code"></i><span>Experience</span></a></li>
-      <li><a href="#projects"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
-      <li><a href="#leadership"><i class="fas fa-users-cog"></i><span>Leadership</span></a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-    </ul>
-  </nav>
+<nav id="navbar">
+  <a href="#home" class="active">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#career-summary">Career Summary</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#leadership">Leadership</a>
+</nav>
 </header>
 
-
-
-
-    
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Hi, I'm Harshitha</h1>
-      <h2>Business Analyst Graduate | Financial Analyst </h2>
-    </div>
-  </section>
-    
-
-
-  <section id="about" data-aos="fade-up" class="about-section-unique">
-  <div class="about-container">
-    <div class="about-content">
-      <h2 class="section-heading-unique">About Me</h2>
-      <p> I am a detail-oriented and driven master’s student in Business Analytics at the University of North Texas, with a strong foundation in data analysis, problem-solving, and business intelligence. With experience in AI-driven solutions, data visualization, and statistical modeling, I am skilled at turning complex data into actionable insights that support strategic decision-making. My hands-on work includes projects in malnutrition analytics, AI-powered hiring systems, and fraud detection, showcasing my ability to blend technical expertise with real-world impact. I am proficient in Python, Tableau, SQL, and cloud technologies, and passionate about leveraging data to drive business growth and innovation. </p>
-    </div>
-  </div>
+<section id="home" class="content page-section active">
+  <h1>Hello & Welcome to My Digital Space</h1>
+  <p>
+    Step into a world where ideas come to life. Discover the skills I've honed, the experiences that shaped me,
+    and the projects that showcase my passion for technology and innovation — all set against a dynamic, animated
+    backdrop that reflects the energy I bring to every challenge.
+  </p>
 </section>
 
-
-
-  <section id="career-summary" data-aos="fade-up" class="career-summary-section">
-  <div class="career-card fade-in-card">
-    <h2 class="career-title">Career Summary</h2>
-    <div class="career-content-panel">
-        <p> Detail-oriented and analytical master’s student specializing in Business Analytics, with a Bachelor of Commerce in Computer Applications. I am skilled in data analysis, problem-solving, and leveraging technology for business insights. Adept at applying statistical and analytical tools to drive decision-making and optimize business performance. </p>
-    </div>
-  </div>
+<section id="about" class="page-section">
+  <p>
+    I am a detail-oriented and driven master's student in Business Analytics at the University of North Texas, with a strong foundation in data analysis, problem-solving, and business intelligence. With experience in AI-driven solutions, data visualization, and statistical modeling, I am skilled at turning complex data into actionable insights that support strategic decision-making.
+  </p>
+  <p>
+    My hands-on work includes projects in malnutrition analytics, AI-powered hiring systems, and fraud detection, showcasing my ability to blend technical expertise with real-world impact. I am proficient in Python, Tableau, SQL, and cloud technologies, and passionate about leveraging data to drive business growth and innovation.
+  </p>
 </section>
 
-
-
-
- 
-<section id="education" class="edu-timeline-section">
-  <h2 class="edu-title">Education</h2>
-
-  <div class="edu-timeline">
-    <div class="edu-item animate-left">
-      <div class="edu-content">
-        <h3>University of North Texas</h3>
-        <p class="edu-role">M.S. Business Analytics</p>
-        <p class="edu-date">Expected Dec 2025</p>
-        <div class="edu-detail">
-          <p><strong>GPA:</strong> 3.5 / 4.0</p>
-          <p><strong>Coursework:</strong> Data Visualization, Data Mining, Predictive Analysis, Business Statistics</p>
-          <p>Capstone: Improved sales forecasts by 15% using ML models.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="edu-item animate-right">
-      <div class="edu-content">
-        <h3>Osmania University</h3>
-        <p class="edu-role">Bachelor of Commerce (Computer Applications)</p>
-        <p class="edu-date">June 2020 – April 2023</p>
-        <div class="edu-detail">
-          <p><strong>GPA:</strong> 4.0 / 4.0</p>
-          <p><strong>Coursework:</strong> Database Management Systems, Business Statistics, Management Information Systems, Financial Accounting</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="career-summary" class="page-section">
+  <p>I am a highly motivated and analytical Master's student in Business Analytics, with a proven ability to leverage data for strategic decision-making. My experience spans AI-driven solutions, data visualization, and statistical modeling, allowing me to transform complex datasets into actionable insights. I thrive in dynamic environments where innovation and continuous learning are valued.</p>
 </section>
 
-<section class="cert-section">
-  <h4 class="cert-heading">Certifications & Workshops</h4>
-  <ul class="cert-list">
-    <li class="cert-item"><i class="fas fa-rocket"></i> Entrepreneurship Orientation Program (NSIC) — Launching and sustaining startups.</li>
-    <li class="cert-item"><i class="fas fa-bullhorn"></i> Ad Mad Competition — Strategic advertising in high-pressure environments.</li>
-  </ul>
+<section id="education" class="page-section">
+  <h3>Master of Science in Business Analytics | University of North Texas, Denton, TX</h3>
+  <p>Expected Graduation: May 2025</p>
+  <ul>
+    <li>Relevant Coursework: Advanced Predictive Analytics, Data Mining, Business Intelligence, Big Data Analytics, Cloud Computing for Business</li>
+    <li>Key Projects: Developed an AI-powered resume screening system, visualized global child malnutrition trends, designed an AI-driven fraud detection system.</li>
+  </ul>
+  <h3>Bachelor of Technology in Computer Science and Engineering | Jawaharlal Nehru Technological University, Kakinada, India</h3>
+  <p>Graduated: May 2022</p>
+  <ul>
+    <li>Relevant Coursework: Data Structures and Algorithms, Database Management Systems, Machine Learning, Web Technologies</li>
+    <li>Awarded for academic excellence (top 10% of class).</li>
+  </ul>
 </section>
 
-
-
-
-
-
-
-
-
-<section id="skills" class="skills-section" aria-label="Technical and Analytical Skills">
-  <h2 class="skills-title">Technical & Analytical Skills</h2>
-  <ul class="skills-list">
-    <li>
-      <span class="skill-name">Python</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="90">90%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">NumPy</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="88">88%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">Pandas</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="89">89%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">R</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="85">85%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">Power BI</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="82">82%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">Tableau</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="87">87%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">MySQL</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="86">86%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">MS Excel</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="90">90%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">Big Data</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="75">75%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">NoSQL</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="78">78%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">MongoDB</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="80">80%</div>
-      </div>
-    </li>
-    <li>
-      <span class="skill-name">Google Cloud Platform (GCP)</span>
-      <div class="progress-bar">
-        <div class="progress-fill" data-progress="80">80%</div>
-      </div>
-    </li>
-  </ul>
+<section id="skills" class="page-section">
+  <div class="skills-container">
+    <div class="skill">
+      <span>Python</span>
+      <div class="progress"><div class="progress-bar" style="width: 90%;">90%</div></div>
+    </div>
+    <div class="skill">
+      <span>NumPy</span>
+      <div class="progress"><div class="progress-bar" style="width: 88%;">88%</div></div>
+    </div>
+    <div class="skill">
+      <span>Pandas</span>
+      <div class="progress"><div class="progress-bar" style="width: 89%;">89%</div></div>
+    </div>
+    <div class="skill">
+      <span>R</span>
+      <div class="progress"><div class="progress-bar" style="width: 85%;">85%</div></div>
+    </div>
+    <div class="skill">
+      <span>Power BI</span>
+      <div class="progress"><div class="progress-bar" style="width: 82%;">82%</div></div>
+    </div>
+    <div class="skill">
+      <span>Tableau</span>
+      <div class="progress"><div class="progress-bar" style="width: 87%;">87%</div></div>
+    </div>
+    <div class="skill">
+      <span>MySQL</span>
+      <div class="progress"><div class="progress-bar" style="width: 86%;">86%</div></div>
+    </div>
+    <div class="skill">
+      <span>MS Excel</span>
+      <div class="progress"><div class="progress-bar" style="width: 90%;">90%</div></div>
+    </div>
+    <div class="skill">
+      <span>Big Data</span>
+      <div class="progress"><div class="progress-bar" style="width: 75%;">75%</div></div>
+    </div>
+    <div class="skill">
+      <span>NoSQL</span>
+      <div class="progress"><div class="progress-bar" style="width: 78%;">78%</div></div>
+    </div>
+    <div class="skill">
+      <span>MongoDB</span>
+      <div class="progress"><div class="progress-bar" style="width: 80%;">80%</div></div>
+    </div>
+    <div class="skill">
+      <span>Google Cloud Platform (GCP)</span>
+      <div class="progress"><div class="progress-bar" style="width: 80%;">80%</div></div>
+    </div>
+  </div>
 </section>
 
-
-
-    
-
-
-<!-- ACCORDION-->
- <section id="experience" class="accordion-section" style="max-width: 800px; margin: 4rem auto;   font-family: 'Times New Roman', Times, serif; color: #333;">
-  <h2 style="text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 3rem; color: #1a237e;">Internship & Employment Experience</h2>
-
-  <div class="accordion-item">
-    <button class="accordion-header">
-      <span>💼</span> Entrepreneurship/Business Development Intern, NSIC – Hyderabad, IND
-      <time>May 2022 – Mar 2023</time>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-content">
-      <p>I worked on understanding how market trends, financial feasibility, and industrial awareness impact small business growth. My role was to analyze market data, evaluate business growth patterns, and develop insights to help small businesses make informed decisions. I collected and analyzed data from small businesses, identified trends in sales, customer demand, and industry growth, and created a basic financial model to assess business viability.</p>
-    </div>
-  </div>
-
-  <div class="accordion-item">
-    <button class="accordion-header">
-      <span>🎓</span> Counselor/Data Insights Mentor, Voice 4 Girls – Hyderabad, IND
-      <time>Aug 2021 – Mar 2022</time>
-      <span class="accordion-icon">+</span>
-    </button>
-    <div class="accordion-content">
-      <p>I worked to empower students by helping them develop key skills for personal and academic growth. My goal was to mentor students, analyze learning patterns, and provide insights on effective teaching strategies to improve engagement and knowledge retention. Conducted interactive counseling sessions, assessed student progress using qualitative insights, and adapted my mentoring techniques based on observed trends. Additionally, I used basic data analysis methods (surveys, feedback tracking) to understand learning gaps and improve counseling effectiveness. Improved students’ confidence, problem-solving, and decision-making skills, while also strengthening my ability to analyze behavioral trends, communicate insights effectively, and apply data-driven approaches to learning.</p>
-    </div>
-  </div>
+<section id="experience" class="page-section">
+  <h3>Data Analytics Intern | [Company Name], [City, State] | [Start Date] – [End Date]</h3>
+  <ul>
+    <li>Developed and maintained dashboards using Tableau to track key performance indicators, resulting in a [X]% increase in data accessibility for stakeholders.</li>
+    <li>Performed extensive data cleaning and manipulation using Python (Pandas, NumPy) to prepare datasets for analysis, improving data quality by [X]%.</li>
+    <li>Assisted in building predictive models to forecast market trends, contributing to [X]% more accurate sales projections.</li>
+    <li>Collaborated with cross-functional teams to gather requirements and deliver data-driven insights that informed business strategies.</li>
+  </ul>
+  <h3>Business Analyst | [Previous Company Name], [City, Country] | [Start Date] – [End Date]</h3>
+  <ul>
+    <li>Analyzed large datasets to identify business opportunities and efficiencies, leading to a [X]% cost reduction in operations.</li>
+    <li>Created detailed reports and presentations for senior management, translating complex data into clear and concise recommendations.</li>
+    <li>Implemented SQL queries to extract and transform data from relational databases, supporting various business intelligence initiatives.</li>
+    <li>Contributed to the development of a new data warehousing strategy, improving data retrieval times by [X]%.</li>
+  </ul>
 </section>
 
+<section id="projects" class="projects-section page-section animate-fade">
+  <h2>Projects</h2>
 
+  <div class="project-flex">
+    <article class="project-block project-hiring">
+      <h3>1. Hiring Assistant AI – Agentic Resume Screening System (Academic Project)</h3>
+      <p>This intelligent hiring assistant was built to transform traditional recruitment by integrating agentic AI with Retrieval-Augmented Generation (RAG). It autonomously screens and ranks resumes, engages recruiters through dynamic chat, and evolves based on continuous feedback—all in a privacy-first, offline-ready architecture.</p>
+      <p><strong>Objective:</strong> To develop a lightweight, privacy-compliant, fully offline RAG-powered AI assistant that reduces hiring friction, enhances fairness, and adapts to evolving recruiter criteria in real-time.</p>
+      <p><strong>Core Features:</strong></p>
+      <ul>
+        <li>Resume Parsing: PyMuPDF-based extraction from PDFs (resumes & job descriptions)</li>
+        <li>Semantic Matching: SentenceTransformers embeddings + in-memory similarity for context-rich matching</li>
+        <li>Hybrid Scoring: Combines semantic similarity with rubric-based skill match using Pandas</li>
+        <li>Recruiter Interaction: Dynamic conversations powered by quantized Mistral-7B-Instruct model</li>
+        <li>Feedback Loop: Updates scoring logic and rubric based on recruiter input</li>
+      </ul>
+      <p><strong>Technologies:</strong></p>
+      <ul>
+        <li>Python 3.x for backend logic and processing</li>
+        <li>Streamlit: Interface for recruiter interaction</li>
+        <li>PyMuPDF: For text extraction</li>
+        <li>SentenceTransformers: all-MiniLM-L6-v2 embeddings</li>
+        <li>Pandas: Skill rubric matching & hybrid ranking</li>
+        <li>ctransformers: For local inference using quantized Mistral-7B-Instruct</li>
+        <li>RAG: Integrated retrieval + reasoning for enhanced explainability</li>
+        <li>Offline Mode: Fully local, secure, and cloud-free operation</li>
+      </ul>
+      <p><strong>Key Outcomes:</strong></p>
+      <ul>
+        <li>Efficiency: Reduced time-to-hire by automating resume triage and ranking</li>
+        <li>Transparency: Provided clear explanations behind matches and rankings</li>
+        <li>Adaptability: Evolved in real-time based on recruiter input and feedback</li>
+        <li>Privacy-Focused: Local inference ensured no external dependencies</li>
+      </ul>
+    </article>
+    <div class="gif-container">
+      <img src="https://i.pinimg.com/originals/12/b7/87/12b7877ea50bc630d3c2367553a4e1a3.gif" alt="Work Mood GIF" />
+    </div>
+  </div>
 
-    
-   <!--Project-->
-<section id="projects" style="padding: 3rem 1rem; background: #f0f4ff; font-family: 'Times New Roman', Times, serif; max-width: 900px; margin: auto;">
-  <h2 style="text-align: center; font-weight: 800; color: #1a237e; margin-bottom: 3rem; letter-spacing: 1.5px; font-size: 2.8rem;">
-    Innovative Business Analytics & Reporting Solutions
-  </h2>
+  <div class="project-flex">
+    <article class="project-block project-malnutrition">
+      <h3>2. Visualizing Global Trends in Child Malnutrition (Academic Project)</h3>
+      <p>Leveraging global health datasets from WHO, UNICEF, and the World Bank, this project offered a deep dive into malnutrition trends—analyzing stunting, wasting, underweight, and overweight metrics across geography, gender, and age. By transforming complex raw data into interactive dashboards, the project empowered global stakeholders to make informed decisions targeting child health inequalities.</p>
+      <p><strong>Key Deliverables:</strong></p>
+      <ul>
+        <li>Malnutrition Severity Dashboard: Filterable by country, region, gender, and year—offering a 360° view of malnutrition prevalence</li>
+        <li>Child Patterns Dashboard: Trend analysis by age, visualized through scatter plots, time-series, box plots, and stacked area charts</li>
+        <li>Geospatial Heatmaps: Interactive mapping to highlight regional malnutrition disparities</li>
+      </ul>
+      <p><strong>Data Engineering & Insights:</strong></p>
+      <ul>
+        <li>Cleaned & standardized massive health datasets, resolving missing and inconsistent values</li>
+        <li>Mapped historical data (1970–2022) to expose evolving trends across urban-rural lines and genders</li>
+        <li>Identified critical hotspots like Papua New Guinea and Yemen demanding urgent intervention</li>
+      </ul>
+      <p><strong>Tools & Tech Stack:</strong></p>
+      <ul>
+        <li>Python (Pandas, NumPy): For data cleaning, transformation, and wrangling</li>
+        <li>Tableau / Power BI: To build interactive, high-impact dashboards</li>
+        <li>Excel / Google Sheets: Initial validation and exploration</li>
+        <li>Visualization Techniques: Geospatial mapping, trend & comparative analysis, interactive filters</li>
+      </ul>
+    </article>
+    <div class="gif-container">
+      <img src="https://i.pinimg.com/originals/12/b7/87/12b7877ea50bc630d3c2367553a4e1a3.gif" alt="Work Mood GIF" />
+    </div>
+  </div>
 
-  <div class="timeline" style="position: relative; padding-left: 40px; border-left: 4px solid #4e73df;">
-
-    <!-- Project 1 -->
-
-<div class="timeline-item" style="position: relative; margin-bottom: 4rem;">
-  <span class="timeline-icon" aria-hidden="true" style="
-    position: absolute;
-    left: -30px;
-    top: 0;
-    background: linear-gradient(135deg, #4e73df, #2a2a72);
-    color: white;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 0 12px #4e73dfaa;
-  ">🤖</span>
-
-  <div class="content" style="background: white; padding: 2rem 2.2rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(78, 115, 223, 0.15); font-family: 'Times New Roman', Times, serif;
-">
-
-    <h3 style="margin-top: 0; color: #2a2a72; font-weight: 800; font-size: 1.5rem;">
-      Hiring Assistant AI – Agentic Resume Screening System
-      <small style="font-weight: 500; color: #666; font-size: 0.95rem;">(Academic Project)</small>
-    </h3>
-
-    <p style="color: #444; font-size: 1rem; line-height: 1.7; margin: 1rem 0;">
-      This intelligent hiring assistant was built to transform traditional recruitment by integrating agentic AI with Retrieval-Augmented Generation (RAG). It autonomously screens and ranks resumes, engages recruiters through dynamic chat, and evolves based on continuous feedback—all in a privacy-first, offline-ready architecture.
-    </p>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #2a2a72; font-size: 1.15rem; margin-bottom: 0.6rem;">🎯 Objective</h4>
-      <p style="color: #444; font-size: 0.97rem; line-height: 1.6;">
-        To develop a lightweight, privacy-compliant, fully offline RAG-powered AI assistant that reduces hiring friction, enhances fairness, and adapts to evolving recruiter criteria in real-time.
-      </p>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #2a2a72; font-size: 1.15rem; margin-bottom: 0.6rem;">🚀 Core Features</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Resume Parsing:</strong> PyMuPDF-based extraction from PDFs (resumes & job descriptions).</li>
-        <li><strong>Semantic Matching:</strong> SentenceTransformers embeddings + in-memory similarity for context-rich matching.</li>
-        <li><strong>Hybrid Scoring:</strong> Combines semantic similarity with rubric-based skill match using Pandas.</li>
-        <li><strong>Recruiter Interaction:</strong> Dynamic conversations powered by quantized Mistral-7B-Instruct model.</li>
-        <li><strong>Feedback Loop:</strong> Updates scoring logic and rubric based on recruiter input.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #2a2a72; font-size: 1.15rem; margin-bottom: 0.6rem;">🧠 Technologies & Architecture</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Python 3.x</strong> for backend logic and processing.</li>
-        <li><strong>Streamlit:</strong> Interface for recruiter interaction.</li>
-        <li><strong>PyMuPDF:</strong> For text extraction.</li>
-        <li><strong>SentenceTransformers:</strong> all-MiniLM-L6-v2 embeddings.</li>
-        <li><strong>Pandas:</strong> Skill rubric matching & hybrid ranking.</li>
-        <li><strong>ctransformers:</strong> For local inference using quantized Mistral-7B-Instruct.</li>
-        <li><strong>RAG:</strong> Integrated retrieval + reasoning for enhanced explainability.</li>
-        <li><strong>Offline Mode:</strong> Fully local, secure, and cloud-free operation.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #2a2a72; font-size: 1.15rem; margin-bottom: 0.6rem;">🏆 Key Outcomes</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Efficiency:</strong> Reduced time-to-hire by automating resume triage and ranking.</li>
-        <li><strong>Transparency:</strong> Provided clear explanations behind matches and rankings.</li>
-        <li><strong>Adaptability:</strong> Evolved in real-time based on recruiter input and feedback.</li>
-        <li><strong>Privacy-Focused:</strong> Local inference ensured no external dependencies.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.4rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Python</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Streamlit</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">PyMuPDF</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">SentenceTransformers</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Pandas</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Mistral-7B</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">RAG</span>
-      <span style="background: #e3e9ff; color: #2a2a72; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Offline AI</span>
-    </section>
-
-  </div>
-</div>
-
-    
-    <!-- Project 2 -->
-<div class="timeline-item" style="position: relative; margin-bottom: 4rem;">
-  <span class="timeline-icon" aria-hidden="true" style="
-    position: absolute;
-    left: -35px;
-    top: 0;
-    background: linear-gradient(135deg, #ef5350, #c62828);
-    color: white;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 0 12px #ef5350cc;
-  ">📊</span>
-
-  <div class="content" style="
-    background: white;
-    padding: 2rem 2.2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(239, 83, 80, 0.15);
-    font-family: 'Segoe UI', sans-serif;
-  ">
-
-    <h3 style="margin-top: 0; color: #b71c1c; font-weight: 800; font-size: 1.5rem;">
-      Visualizing Global Trends in Child Malnutrition
-      <small style="font-weight: 500; color: #777; font-size: 0.95rem;">(Academic Project)</small>
-    </h3>
-
-    <p style="color: #444; font-size: 1rem; line-height: 1.7; margin: 1rem 0;">
-      Leveraging global health datasets from WHO, UNICEF, and the World Bank, this project offered a deep dive into malnutrition trends—analyzing stunting, wasting, underweight, and overweight metrics across geography, gender, and age.
-      By transforming complex raw data into interactive dashboards, the project empowered global stakeholders to make informed decisions targeting child health inequalities.
-    </p>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #c62828; font-size: 1.15rem; margin-bottom: 0.6rem;">📈 Key Deliverables</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Malnutrition Severity Dashboard:</strong> Filterable by country, region, gender, and year—offering a 360° view of malnutrition prevalence.</li>
-        <li><strong>Child Patterns Dashboard:</strong> Trend analysis by age, visualized through scatter plots, time-series, box plots, and stacked area charts.</li>
-        <li><strong>Geospatial Heatmaps:</strong> Interactive mapping to highlight regional malnutrition disparities.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #c62828; font-size: 1.15rem; margin-bottom: 0.6rem;">🔍 Data Engineering & Insights</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li>Cleaned & standardized massive health datasets, resolving missing and inconsistent values.</li>
-        <li>Mapped historical data (1970–2022) to expose evolving trends across urban-rural lines and genders.</li>
-        <li>Identified critical hotspots like <strong>Papua New Guinea</strong> and <strong>Yemen</strong> demanding urgent intervention.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #c62828; font-size: 1.15rem; margin-bottom: 0.6rem;">🛠️ Tools & Tech Stack</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Python (Pandas, NumPy):</strong> For data cleaning, transformation, and wrangling.</li>
-        <li><strong>Tableau / Power BI:</strong> To build interactive, high-impact dashboards.</li>
-        <li><strong>Excel / Google Sheets:</strong> Initial validation and exploration.</li>
-        <li><strong>Visualization Techniques:</strong> Geospatial mapping, trend & comparative analysis, interactive filters.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #c62828; font-size: 1.15rem; margin-bottom: 0.6rem;">🌍 Impact & Takeaways</h4>
-      <p style="color: #444; font-size: 0.97rem; line-height: 1.7;">
-        This initiative highlighted the role of data-driven storytelling in global health policy. The dashboards enabled stakeholders to pinpoint vulnerable populations and take action, demonstrating how visual analytics can drive measurable social impact.
-      </p>
-    </section>
-
-    <section style="margin-top: 1.4rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Python</span>
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Pandas</span>
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Tableau</span>
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Geospatial Analysis</span>
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Data Cleansing</span>
-      <span style="background: #fdecea; color: #c62828; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Interactive Dashboards</span>
-    </section>
-
-  </div>
-</div>
-
-    <!-- Project 3 -->
-<div class="timeline-item" style="position: relative; margin-bottom: 4rem;">
-  <span class="timeline-icon" aria-hidden="true" style="
-    position: absolute;
-    left: -35px;
-    top: 0;
-    background: linear-gradient(135deg, #29b6f6, #0288d1);
-    color: white;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 0 12px #29b6f6cc;
-    transition: transform 0.3s ease;
-  ">🏦</span>
-
-  <div class="content" style="
-    background: white;
-    padding: 2rem 2.2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(41, 182, 246, 0.15);
-    transition: box-shadow 0.3s ease;
-    font-family: 'Segoe UI', sans-serif;
-  ">
-
-    <h3 style="margin-top: 0; color: #01579b; font-weight: 800; font-size: 1.5rem;">
-      AI-Powered Fraud Detection in Banking  <small style="font-weight: 500; color: #777; font-size: 0.95rem;">(Academic Project)</small>
-    </h3>
-
-    <p style="color: #444; font-size: 1rem; line-height: 1.7; margin: 1rem 0;">
-      This project envisioned and specified a real-time AI-driven fraud detection system tailored for the financial sector. Replacing traditional rule-based methods, the system leverages machine learning models for proactive fraud prediction, pattern recognition, and compliance-oriented auditing.
-    </p>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #0277bd; font-size: 1.15rem; margin-bottom: 0.6rem;">🚀 Core Features</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Real-Time Monitoring:</strong> Flags suspicious behavior with latency under 300ms.</li>
-        <li><strong>Supervised & Unsupervised ML:</strong> Detects both known and emerging fraud tactics.</li>
-        <li><strong>Investigation Module:</strong> Analysts can review, annotate, and escalate flagged cases with feedback loops.</li>
-        <li><strong>Risk Scoring:</strong> Behavioral analysis scores each transaction dynamically, with instant alerts via dashboards & SMS.</li>
-        <li><strong>Explainable AI:</strong> SHAP/LIME ensures transparent, auditable decisions for compliance (GDPR, AML, etc.).</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #0277bd; font-size: 1.15rem; margin-bottom: 0.6rem;">🛠️ Technical Highlights</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Continuous Learning:</strong> Adaptive model retraining using analyst feedback.</li>
-        <li><strong>High Availability:</strong> 99.99% uptime with scalable, containerized microservices.</li>
-        <li><strong>Security Protocols:</strong> AES-256, TLS 1.3, MFA, RBAC implemented.</li>
-        <li><strong>Ethical AI:</strong> Bias mitigation and fair decision logic integrated across all demographic groups.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.2rem;">
-      <h4 style="color: #0277bd; font-size: 1.15rem; margin-bottom: 0.6rem;">📈 Use Cases & Value</h4>
-      <ul style="padding-left: 1.2rem; color: #333; font-size: 0.97rem; line-height: 1.6;">
-        <li><strong>Real-Time Fraud Workflow:</strong> Full lifecycle from transaction monitoring to analyst resolution.</li>
-        <li><strong>Operational Efficiency:</strong> Reduces fraud losses and strengthens user trust with predictive insights.</li>
-        <li><strong>Regulatory Compliance:</strong> Ensures conformance to GDPR, PCI DSS, KYC, AML, and CCPA standards.</li>
-      </ul>
-    </section>
-
-    <section style="margin-top: 1.4rem; display: flex; gap: 0.6rem; flex-wrap: wrap;">
-      <span style="background: #e1f5fe; color: #0277bd; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Machine Learning</span>
-      <span style="background: #e1f5fe; color: #0277bd; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">SHAP / LIME</span>
-      <span style="background: #e1f5fe; color: #0277bd; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Real-Time Analytics</span>
-      <span style="background: #e1f5fe; color: #0277bd; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Compliance</span>
-      <span style="background: #e1f5fe; color: #0277bd; padding: 0.4rem 1rem; border-radius: 14px; font-weight: 600; font-size: 0.9rem;">Tableau</span>
-    </section>
-
-  </div>
-</div>
-
+  <div class="project-flex">
+    <article class="project-block project-fraud">
+      <h3>3. AI-Driven Fraud Detection System (Academic Project)</h3>
+      <p>Designed a machine learning system to identify and flag fraudulent transactions using an ensemble of supervised models including Random Forest, Logistic Regression, and XGBoost. The project achieved high accuracy and recall rates, demonstrating the potential for scalable fraud detection in financial services.</p>
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>Feature Engineering: Created new features from transaction metadata to improve model performance</li>
+        <li>Model Selection & Tuning: Compared multiple algorithms to select the best performer based on F1-score</li>
+        <li>Imbalanced Data Handling: Applied SMOTE and undersampling techniques to balance classes</li>
+        <li>Deployment: Created a REST API to serve the model predictions</li>
+      </ul>
+      <p><strong>Technologies Used:</strong></p>
+      <ul>
+        <li>Python (Scikit-learn, XGBoost, Pandas, NumPy)</li>
+        <li>Flask: API development for real-time prediction</li>
+        <li>Docker: Containerization for deployment</li>
+        <li>Git & GitHub: Version control</li>
+      </ul>
+    </article>
+    <div class="gif-container">
+      <img src="https://i.pinimg.com/originals/12/b7/87/12b7877ea50bc630d3c2367553a4e1a3.gif" alt="Work Mood GIF" />
+    </div>
+  </div>
 </section>
 
-
- 
-    
-<section id="leadership" style="padding: 2rem; max-width: 800px; margin: auto; font-family: 'Times New Roman', Times, serif;">
-    <h2 style="text-align: center; font-weight: 700; font-size: 2.2rem; margin-bottom: 2rem; color: #333;">Leadership & Community Involvement</h2>
-
-
-  <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
-
-    <div class="card" style="flex: 1 1 250px; background: #f0f8ff; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 3rem; color: #4a90e2; margin-bottom: 1rem; text-align: center;">📊</div>
-      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">UNT Business Analytics Club</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
-        Active Member since <strong>Jan 2024</strong>. Engaged in seminars, analytics challenges, and peer learning events.
-      </p>
-    </div>
-
-    <div class="card" style="flex: 1 1 250px; background: #fff0f6; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 3rem; color: #e94e77; margin-bottom: 1rem; text-align: center;">🏆</div>
-      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">Ad Mad Competition – Winner (Hyderabad, 2022)</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
-        Led a creative ad campaign addressing a social challenge, emphasizing innovation and marketing insight.
-      </p>
-    </div>
-
-    <div class="card" style="flex: 1 1 250px; background: #e8f6f3; border-radius: 12px; box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); padding: 1.8rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 3rem; color: #34a853; margin-bottom: 1rem; text-align: center;">🏊‍♂️</div>
-      <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a1a;">National-Level Swimmer</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.4;">
-        Represented school and undergraduate college at national swim meets, demonstrating discipline, competitive spirit, and time management.
-      </p>
-    </div>
-
-  </div>
+<section id="leadership" class="page-section">
+  <h3>Leadership & Extracurriculars</h3>
+  <ul>
+    <li>President, Data Science Club at University of North Texas – Organized workshops, guest lectures, and hackathons.</li>
+    <li>Volunteer, Local Community Tech Education Program – Mentored underrepresented youth in coding and data literacy.</li>
+    <li>Team Lead, Capstone Project on AI Resume Screening – Coordinated a team of 5 members to deliver a working prototype within 4 months.</li>
+  </ul>
 </section>
-    
-<!-- Footer -->
+  <!-- Footer -->
 <footer style="background-color: #0f2027; color: white; padding: 1.5rem 0; text-align: center;">
   <!-- Social Icons -->
-  <div style="font-size: 1.6rem; margin-bottom: 0.5rem;">
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/harshitha-sreiya-palaparthi-4434b4340" target="_blank" class="social-link" title="Connect on LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
+ <div style="font-size: 1.6rem; margin-bottom: 0.5rem;">
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/harshitha-sreiya-palaparthi-4434b4340" target="_blank" style="color: white; margin: 0 1rem;">
+    <i class="fab fa-linkedin"></i>
+  </a>
 
-    <!-- Gmail -->
-    <a href="mailto:harshithasrieya@gmail.com" class="social-link" title="Send an Email">
-      <i class="fas fa-envelope"></i>
-    </a>
-  </div>
+  <!-- Gmail -->
+  <a href="mailto:harshithasrieya@gmail.com" style="color: white; margin: 0 1rem;">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
+
 
   <!-- Custom Text -->
-  <p style="margin: 0.5rem 0;">Developed & deployed by Harshitha — <i class="fab fa-github"></i> open-source passion</p>
-
+  <p style="margin: 0.5rem 0;">Made with <i class="fab fa-github"></i> by Harshitha</p>
 
   <!-- Current Date and Time -->
   <p id="datetime" style="font-size: 0.85rem; color: #ccc;"></p>
 </footer>
 
-
 <script>
-  
-// Date & Time updater
-function updateDateTime() {
-  const now = new Date();
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  };
-  document.getElementById("datetime").textContent = now.toLocaleString("en-US", options);
-}
-updateDateTime();
-setInterval(updateDateTime, 1000);
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('#navbar a');
+    const sections = document.querySelectorAll('.portfolio-section');
 
-// Accordion functionality
-const accordionHeaders = document.querySelectorAll('.accordion-header');
-accordionHeaders.forEach(header => {
-  header.addEventListener('click', () => {
-    const content = header.nextElementSibling;
-    // Close others
-    document.querySelectorAll('.accordion-content').forEach(c => {
-      if (c !== content) {
-        c.style.maxHeight = null;
-        c.style.paddingTop = 0;
-        c.style.paddingBottom = 0;
-      }
-    });
-    document.querySelectorAll('.accordion-header').forEach(h => {
-      if (h !== header) h.classList.remove('open');
-    });
-    // Toggle this
-    header.classList.toggle('open');
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      content.style.paddingTop = 0;
-      content.style.paddingBottom = 0;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-      content.style.paddingTop = "1rem";
-      content.style.paddingBottom = "1rem";
-    }
-  });
-});
+    function showSection(id) {
+      sections.forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none'; // Ensure it's hidden
+      });
+      const targetSection = document.querySelector(id);
+      if (targetSection) {
+        targetSection.classList.add('active');
+        targetSection.style.display = 'block'; // Display the active section
+      }
+    }
 
-// Timeline fade-in animation on scroll
-const timelineItems = document.querySelectorAll(".timeline-item");
-const timelineObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = "translateY(0)";
-        timelineObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
-timelineItems.forEach(item => {
-  item.style.opacity = 0;
-  item.style.transform = "translateY(30px)";
-  item.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-  timelineObserver.observe(item);
-});
+    function setActiveNavLink(clickedLink) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      clickedLink.classList.add('active');
+    }
 
-// Animate progress bars on intersection
-document.addEventListener("DOMContentLoaded", () => {
-  const fillBars = document.querySelectorAll(".progress-fill");
-  const progressObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fill = entry.target;
-        const targetWidth = fill.getAttribute("data-progress");
-        fill.style.width = targetWidth + "%";
-        observer.unobserve(fill);
-      }
-    });
-  }, { threshold: 0.3 });
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor jump
+        const targetId = this.getAttribute('href');
+        showSection(targetId);
+        setActiveNavLink(this);
+      });
+    });
 
-  fillBars.forEach(bar => {
-    bar.style.width = "0%"; // reset before animating
-    progressObserver.observe(bar);
-  });
-});
+    // Show the "Home" section by default when the page loads
+    showSection('#home');
+  });
 
-// Career summary section fade-in
-
-document.addEventListener("DOMContentLoaded", function () {
-  const section = document.querySelector(".career-card");
-
-  function handleScroll() {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add("visible");
-      window.removeEventListener("scroll", handleScroll); // Animate once
-    }
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // Check on load
-});
-  
-// Education items fade-in on scroll
-document.addEventListener("DOMContentLoaded", () => {
-  const eduItems = document.querySelectorAll(".edu-item");
-
-  function checkEduPosition() {
-    eduItems.forEach(item => {
-      const rect = item.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        item.classList.add("visible");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", checkEduPosition);
-  checkEduPosition();
-});
-
-// Highlight nav links on scroll
-window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("navbar");
-  if (window.scrollY > 50) {
-    navbar.style.padding = "0.5rem 1rem";
-    navbar.style.backdropFilter = "blur(20px)";
-  } else {
-    navbar.style.padding = "1rem";
-    navbar.style.backdropFilter = "blur(12px)";
-  }
-});
+//time , date
+  const dtElem = document.getElementById('datetime');
+  function updateDateTime() {
+    const now = new Date();
+    dtElem.textContent = now.toLocaleString();
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
 
 
-// Initialize AOS animations
-if (window.AOS) {
-  AOS.init({
-    duration: 1200,
-    once: true,
-    easing: 'ease-in-out'
-  });
-}
-  window.addEventListener("scroll", function () {
-    const navbar = document.getElementById("navbar");
-    if (window.scrollY > 50) {
-      navbar.classList.add("shrink");
-    } else {
-      navbar.classList.remove("shrink");
-    }
-  });
-  
 </script>
+
 </body>
 </html>
