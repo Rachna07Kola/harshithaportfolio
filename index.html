@@ -89,10 +89,16 @@
 
         /* Home Section Specific */
         #home {
-            background: linear-gradient(135deg, #a8e063, #56ab2f); /* Green gradient */
+            background: url('https://cdn.dribbble.com/userupload/35540897/file/original-7b9335903fdfa34d29222e2b4faccd5b.gif') no-repeat center center/cover;
             color: white;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            min-height: 100vh; /* Optional: ensure full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+  
+
         #home .text-block {
             padding: 20px;
             background: rgba(255, 255, 255, 0.2);
@@ -460,35 +466,37 @@
         .cert-card:nth-child(3) .ribbon { background: #17a2b8; } /* UNT Guest Lecture ribbon */
 
         /* Footer Styles */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
+       .footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  display: none; /* Hidden by default */
+}
 
-        .footer p {
-            margin: 0;
-            margin-bottom: 10px;
-        }
+.footer p {
+  margin: 0;
+  margin-bottom: 10px;
+}
 
-        .footer .social-icons a {
-            color: #fff;
-            font-size: 1.5em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
+.footer .social-icons a {
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
 
-        .footer .social-icons a:hover {
-            color: #007bff; /* Highlight on hover */
-        }
+.footer .social-icons a:hover {
+  color: #007bff; /* Highlight on hover */
+}
 
-        #datetime {
-            margin-top: 10px;
-            font-size: 0.8em;
-            color: #bbb;
-        }
+#datetime {
+  margin-top: 10px;
+  font-size: 0.8em;
+  color: #bbb;
+}
+
 
 
         /* Responsive Design */
@@ -795,7 +803,7 @@
                 </ul>
             </article>
             <div class="gif-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Lightning-movie.gif" alt="Lightning Animation GIF" />
+                <img src="https://imgflip.com/gif/9v1jeb" alt="Lightning Animation GIF" />
             </div>
         </div>
     </section>
@@ -838,122 +846,126 @@
         <div id="datetime"></div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('#navbar a');
-            const sections = document.querySelectorAll('.page-section');
-            const yearSpan = document.getElementById('year');
-            const datetimeDiv = document.getElementById('datetime');
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('#navbar a');
+    const sections = document.querySelectorAll('.page-section');
+    const footer = document.querySelector('.footer');
+    const yearSpan = document.getElementById('year');
+    const datetimeDiv = document.getElementById('datetime');
 
-            // Set current year in footer
-            yearSpan.textContent = new Date().getFullYear();
+    // Set current year in footer
+    yearSpan.textContent = new Date().getFullYear();
 
-            // Update date and time in footer
-            function updateDateTime() {
-                const now = new Date();
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-                datetimeDiv.textContent = now.toLocaleDateString('en-US', options);
-            }
-            // Call immediately and then set interval
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
+    // Update date and time in footer
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        };
+        datetimeDiv.textContent = now.toLocaleDateString('en-US', options);
+    }
 
-            // Function to show a specific section and scroll to it
-            // This function is now the central point for section activation and scrolling
-            function showSectionAndScroll(targetId) {
-                sections.forEach(section => {
-                    // Remove 'active' from all sections
-                    section.classList.remove('active');
-                });
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
 
-                // Add 'active' to the target section
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
+    // Show a section and scroll to it
+    function showSectionAndScroll(targetId) {
+        sections.forEach(section => section.classList.remove('active'));
 
-                    // Scroll to the active section smoothly
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+
+            // Skills animation
+            if (targetId === 'skills') {
+                document.querySelectorAll('#skills .progress-bar').forEach(bar => {
+                    const targetWidth = bar.style.getPropertyValue('--target-width');
+                    bar.style.width = '0%';
                     setTimeout(() => {
-                        targetSection.scrollIntoView({ behavior: 'smooth' });
-                    }, 50); // Small delay to allow CSS transitions to start before scrolling
+                        bar.style.width = targetWidth;
+                    }, 500);
+                });
+            }
 
-                    // Handle skill bar animations specifically for the 'skills' section
-                    if (targetId === 'skills') {
-                        document.querySelectorAll('#skills .progress-bar').forEach(bar => {
-                            // Get the target width from the custom CSS property
-                            const targetWidth = bar.style.getPropertyValue('--target-width');
-                            bar.style.width = '0%'; // Reset width to 0 to re-trigger the CSS animation
-                            setTimeout(() => {
-                                bar.style.width = targetWidth; // Set to target width to animate
-                            }, 500); // Delay to ensure the reset takes effect before animation
-                        });
-                    }
-                }
+            // Show the footer
+            footer.style.display = 'block';
+        }
 
-                // Update active state in navigation bar
+        // Update active link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${targetId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Navigation click event
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').substring(1);
+            showSectionAndScroll(targetId);
+        });
+    });
+
+    // Scroll-based nav highlighting
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.7
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentSectionId = entry.target.id;
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${targetId}`) {
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
                         link.classList.add('active');
                     }
                 });
-            }
 
-            // Add click event listeners to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault(); // Prevent default anchor link behavior
-
-                    const targetId = e.target.getAttribute('href').substring(1);
-                    showSectionAndScroll(targetId);
-                });
-            });
-
-            // Intersection Observer to update active navigation link on scroll
-            const observerOptions = {
-                root: null, // relative to the viewport
-                rootMargin: '0px',
-                threshold: 0.7 // Section is considered active when 70% visible
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const currentSectionId = entry.target.id;
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                                link.classList.add('active');
-                            }
-                        });
-
-                        // Re-trigger skill bar animation if the skills section becomes active via scroll
-                        if (currentSectionId === 'skills') {
-                            document.querySelectorAll('#skills .progress-bar').forEach(bar => {
-                                const targetWidth = bar.style.getPropertyValue('--target-width');
-                                bar.style.width = '0%';
-                                setTimeout(() => {
-                                    bar.style.width = targetWidth;
-                                }, 500);
-                            });
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            // Observe each section
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Initial load: determine which section to show and scroll to
-            window.addEventListener('load', () => {
-                let initialHash = window.location.hash.substring(1);
-                if (!initialHash || initialHash === 'home') {
-                    initialHash = 'home'; // Default to home if no hash or invalid hash
+                if (currentSectionId === 'skills') {
+                    document.querySelectorAll('#skills .progress-bar').forEach(bar => {
+                        const targetWidth = bar.style.getPropertyValue('--target-width');
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = targetWidth;
+                        }, 500);
+                    });
                 }
-                showSectionAndScroll(initialHash);
-            });
+
+                // Show the footer on scroll into a new section
+                footer.style.display = 'block';
+            }
         });
-    </script>
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Initial page load logic
+    window.addEventListener('load', () => {
+        let initialHash = window.location.hash.substring(1);
+        if (!initialHash || initialHash === 'home') {
+            initialHash = 'home';
+        }
+        showSectionAndScroll(initialHash);
+    });
+});
+</script>
+
 </body>
 </html>
